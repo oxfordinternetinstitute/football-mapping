@@ -1,17 +1,21 @@
 "use strict";
+
+var uk_post_districts;
+//show layer with loading animation
+jQuery.getJSON("data/uk_post_districs.json",function(data) {
+	//hide layer with loading animation
+	uk_post_districts=data;
+	dataReady();
+});
+
+//global vars
+var current_rivalry = 0; // this is what we will change with our drop down select box
+var team1,team2;
+var colorMin,colorMax,geojson,map;
+
 $(document).ready(function() {
 
-		//global vars
-		var current_rivalry = 0; // this is what we will change with our drop down select box
-		var team1,team2;
-		var colorMin,colorMax,geojson;
-
-		$('#controlButton').click(function () {
-			 $("#controlwrapper").animate({marginBottom: 0}, 400);
-		 });
-		 
-		 
-		 //Build list of rivalries
+		//Build list of rivalries
 		 var list = $("#rivalryList");
 		 for (var i=0; i<rivalries.length; i++) {
 		 	var r=rivalries[i];
@@ -50,7 +54,7 @@ $(document).ready(function() {
 		 });		 
 		 
 		//Build map
-		var map = L.map('map').setView([54.6342, -5.2], 6);
+		map = L.map('map').setView([54.6342, -5.2], 6);
 		L.tileLayer('http://{s}.tile.cloudmade.com/{key}/22677/256/{z}/{x}/{y}.png', {
 			key: 'BC9A493B41014CAABB98F0471D759707'
 			}).addTo(map);
@@ -60,8 +64,22 @@ $(document).ready(function() {
 				onEachFeature: onEachFeature
 			}).addTo(map);*/
 			
-		function showData(what) {
-			var team1_variable,team2_variable;
+		
+		var hash=document.location.hash;
+		if (hash=="" || hash=="#") {
+			hash="#riv0";
+		}
+		prepareGUI(hash);
+		
+		$('#controlButton').click(function () {
+			 $("#controlwrapper").animate({marginBottom: 0}, 400);
+		});
+});
+
+
+
+
+		function prepareGUI(what) {
 			if (what.indexOf("#riv")!=-1) {
 				current_rivalry = what.substr(4);
 				//current_rivalry = 0; // this is what we will change with our drop down select box
@@ -83,6 +101,22 @@ $(document).ready(function() {
 				$('#team2name').hide();
 				$("#vs").hide();
 			}
+			
+			// this will be refactored into some sort of changeRivalry() function
+			$('#team1logo').attr("src", teamsData[team1]['crest']);
+			$('#team1name').text(teamsData[team1]['name']);
+		
+			$('#team2logo').attr("src", teamsData[team2]['crest']);		
+			$('#team2name').text(teamsData[team2]['name']);
+		}
+		 
+			
+		function showData(what) {
+			prepareGUI(what);
+			dataReady();
+		}
+		
+		function dataReady() {
 		
 			//var colorMin=1,colorMax=0;
 			var colorDist=[];
@@ -108,12 +142,7 @@ $(document).ready(function() {
 			//console.log(colorMax);
 		
 		
-			// this will be refactored into some sort of changeRivalry() function
-			$('#team1logo').attr("src", teamsData[team1]['crest']);
-			$('#team1name').text(teamsData[team1]['name']);
 		
-			$('#team2logo').attr("src", teamsData[team2]['crest']);		
-			$('#team2name').text(teamsData[team2]['name']);
 			if (geojson) {
 				geojson.setStyle(style);
 			} else {//first time
@@ -123,13 +152,6 @@ $(document).ready(function() {
 				}).addTo(map);
 			}
 		}//End show data
-		
-		var hash=document.location.hash;
-		if (hash=="" || hash=="#") {
-			hash="#riv0";
-		}
-		showData(hash);
-
 
 			function highlightFeature(e) {
 				var layer = e.target;
@@ -202,6 +224,3 @@ $(document).ready(function() {
 							//click: zoomToFeature //See Issue 5
 						});
 					}
-
-			
-});
