@@ -139,6 +139,7 @@
 			for (var i=0; i<area_codes.features.length; i++){
 				var team1 = area_codes.features[i].twitter_data[team1_statistic];
 				var team2 = area_codes.features[i].twitter_data[team2_statistic];
+				if (team1+team2==0) continue;
 				var n = team1/(team1+team2);
 				/*if (n<colorMin) {
 					colorMin=n;
