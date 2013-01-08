@@ -47,7 +47,7 @@ $(document).ready(function() {
 			
 		function showData(what) {
 			current_rivalry = what.substr(4);
-			console.log(current_rivalry);
+			//console.log(current_rivalry);
 			//current_rivalry = 0; // this is what we will change with our drop down select box
 			var team1_variable = rivalries[current_rivalry]['teams'][0]['variable'];
 			var team2_variable = rivalries[current_rivalry]['teams'][1]['variable'];
@@ -95,7 +95,13 @@ $(document).ready(function() {
 				}).addTo(map);
 			}
 		}//End show data
-		showData("#riv0");
+		
+		var hash=document.location.hash;
+		if (hash=="" || hash=="#") {
+			hash="#riv0";
+		}
+		showData(hash);
+		
 					
 			
 
