@@ -22,6 +22,7 @@
 		<![endif]-->
 		<script src="js/colorUtil.js" type="text/javascript"></script>
 		<script src="js/rivalries.js"></script>
+		<script src="js/teams.js"></script>
 		<script src="data/uk_post_districs.geojson" type="text/javascript"></script>
 		<script src="data/data.js" type="text/javascript"></script>
 		<style type="text/css">
@@ -98,11 +99,11 @@
 			left:0%;
 			right:0%;
 			text-align:center;
-			margin-bottom:-320px;
+			margin-bottom:-440px;
 		}
 		
 		#controls {
-			height:280px;
+			height:400px;
 			background-color:rgba(255,255,255,1);
 			padding:20px;
 		}
@@ -175,7 +176,7 @@
 
 		<div id="map"></div>
 		<div id="controlwrapper">
-			<div style="position:relative;left:450px;top:60px;"><a href="#" class="controlButton" id="controlButton">Select a Rivalry</a></div>
+			<div style="position:relative;left:450px;top:60px;"><a href="#" class="controlButton" id="controlButton">Select a Rivalry or Team</a></div>
 			<div class="overlay header">
 				<div style="width:350px;text-align:center;margin:0 auto;height:85px;padding-top:15px;color:white">
 					<div id="team1" style="float:left;">
@@ -192,11 +193,19 @@
 				</div>
 			</div>
 			<div id="controls">
-				<div style="width:400px;margin:0 auto">
-					<h1>Select a Rivalry</h1>
-					<p>Some blurb goes here but the meantime I will just write nonsense.</p>
-					<ul id="rivalryList"></ul>
+				<div style="width:600px;margin:0 auto">
+					<div style="float:left;width:300px;">
+						<h1>Rivalries</h1>
+						<p>Some blurb goes here but the meantime I will just write nonsense.</p>
+						<ul id="rivalryList"></ul>
+					</div>
+					<div style="float:right;width:300px;">
+						<h1>Teams</h1>
+						<p>Some blurb goes here but the meantime I will just write nonsense.</p>
+						<ul id="teamList"></ul>
+					</div>					
 				</div>
+				
 			</div>
 		</div>
 
