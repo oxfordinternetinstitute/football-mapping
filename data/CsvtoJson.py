@@ -1,6 +1,6 @@
 import json
 
-fhCsv=open("districts_user2_trim.csv","r")
+fhCsv=open("districts_user2_trim2.csv","r")
 
 jsonDat={}
 header=""
