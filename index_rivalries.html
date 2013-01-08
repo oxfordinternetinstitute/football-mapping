@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scaleable=no">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -21,20 +21,73 @@
 		    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.ie.css" />
 		<![endif]-->
 		<script src="js/rivalries.js"></script>
-		<script src="data/uk_post_areas.geojson" type="text/javascript"></script>
+		<script src="data/area_codes.geojson" type="text/javascript"></script>
 		<style type="text/css">
-		html, body {
-			padding:0;
-			margin:0;
-			width:100%;
-			height:100%;
+		
+		body {
+			padding: 0;
+			margin: 0;
 		}
-
+		html, body, #map {
+			height: 100%;
+		}
+		
 		#map {
-			width:100%;
-			height:100%;
+			opacity:1;
+		}
+		
+		.info {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetica, sans-serif;
+			background: white;
+			background: rgba(0,0,0,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+			width:200px;
+			position:relative;
+			top:100px;
+			color:#fff;
+		}
+		.info h4 {
+			margin: 0 0 5px;
+			color: #777;
 		}
 
+		.legend {
+			text-align: left;
+			line-height: 18px;
+			color: #555;
+		}
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+			opacity: 0.7;
+		}
+		.overlay {
+			position:absolute;
+			background: rgba(0,0,0,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+		}
+		.title {
+			top:10px;
+			right:10px;
+		}
+		.header {
+			top:0px;
+			left:0%;
+			right:0%;
+			text-align:center;
+		}
+		.box {
+			bottom:90px;
+			left:30%;
+			right:30%;
+		}
+
+		
+		
 		</style>
     </head>
     <body>
@@ -49,21 +102,134 @@
         <!-- Add your site or application content here -->
 
 		<div id="map"></div>
-
+		<div class="overlay header">
+			<div style="width:400px;display:block;text-align:center;margin:0 auto;height:75px;padding-top:10px;color:white">
+				<div id="team1" style="float:left;">
+					<image id="team1logo" src="" style="width:50px;height:50px" />
+					<br/><span id="team1name"></span>
+				</div>	
+				
+				<div id="team2" style="float:right">
+					<image id="team2logo" src="" style="width:50px;height:50px" />
+					<br/><span id="team2name"></span>
+				</div>				
+				<div id="vs" style="height:200px;line-height:60px;font-size:38px">Vs.</div>
+			</div>
+		</div>
+		
 		<script>
-			var map = L.map('map').setView([54.6342, -0.2], 6);
+		
+			var current_rivalry = 0; // this is what we will change with our drop down select box
+			var team1_variable = rivalries[current_rivalry]['teams'][0]['variable'];
+			var team2_variable = rivalries[current_rivalry]['teams'][1]['variable'];
+			
+			var team1_statistic = team1_variable+'_norm';
+			var team2_statistic = team2_variable+'_norm';
+			var value1,value2;
+			
+			
+			// this will be refactored into some sort of changeRivalry() function
+			$('#team1logo').attr("src", rivalries[current_rivalry]['teams'][0]['crest']);
+			$('#team1name').text(rivalries[current_rivalry]['teams'][0]['name']);
+			
+			$('#team2logo').attr("src", rivalries[current_rivalry]['teams'][1]['crest']);		
+			$('#team2name').text(rivalries[current_rivalry]['teams'][1]['name']);
+					
+			var map = L.map('map').setView([54.6342, -3.2], 6);
 
 			L.tileLayer('http://{s}.tile.cloudmade.com/{key}/22677/256/{z}/{x}/{y}.png', {
 				attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2012 CloudMade',
 				key: 'BC9A493B41014CAABB98F0471D759707'
 			}).addTo(map);
 
-			L.geoJson(area_codes, {
-			    pointToLayer: function (feature, latlng) {
-			        return L.circleMarker(latlng);
-			    }
-			}).addTo(map);
+			// control that shows state info on hover
+			var info = L.control();
 
+			info.onAdd = function (map) {
+				this._div = L.DomUtil.create('div', 'info');
+				this.update();
+				return this._div;
+			};
+
+			info.update = function (props, twitter_data) {
+				this._div.innerHTML = '<h4>Twitter Support</h4> Postcode region:' +  (props ?
+					'<b>' + props.post_2 + '</b><br />'+rivalries[current_rivalry]['teams'][0]['name']+': '+ twitter_data[team1_statistic] + '<br>'+rivalries[current_rivalry]['teams'][1]['name']+': '+ twitter_data[team2_statistic] 
+					: 'Hover over a postcode region');
+
+			};
+
+			info.addTo(map);
+
+			function highlightFeature(e) {
+				var layer = e.target;
+
+				layer.setStyle({
+					weight: 2,
+					color: '#666666',
+					fillOpacity: 0.3
+				});
+
+				if (!L.Browser.ie && !L.Browser.opera) {
+					layer.bringToFront();
+				}
+
+				info.update(layer.feature.properties, layer.feature.twitter_data);
+			}
+		
+			function resetHighlight(e) {
+				geojson.resetStyle(e.target);
+				info.update();
+			}
+
+			function zoomToFeature(e) {
+				map.fitBounds(e.target.getBounds());
+			}
+
+			function onEachFeature(feature, layer) {
+				layer.on({
+					mouseover: highlightFeature,
+					mouseout: resetHighlight,
+					click: zoomToFeature
+				});
+			}			
+
+			function style(feature) {
+				
+				var value1,value2; //temp variables for storing statistics
+				
+				$.each(feature.twitter_data, function( key, value ) {
+				 	if (key == team1_statistic) {
+						value1 = value;					
+					} else if (key == team2_statistic) {
+						value2 = value;	
+					}
+				});
+														
+				polygoncolor = value1 > value2 ? rivalries[current_rivalry]['teams'][0]['color'] : rivalries[current_rivalry]['teams'][1]['color'];
+
+				return {
+					weight: 1,
+					opacity: 1,
+					color: '#ffffff',
+					fillOpacity: 0.5,
+					fillColor: polygoncolor,
+
+				};
+			}
+
+			function onEachFeature(feature, layer) {
+						layer.on({
+							mouseover: highlightFeature,
+							mouseout: resetHighlight,
+							click: zoomToFeature
+						});
+					}
+
+			geojson = L.geoJson(area_codes, {
+				style: style,
+				onEachFeature: onEachFeature
+			}).addTo(map);
+						
 		</script>
 
 
