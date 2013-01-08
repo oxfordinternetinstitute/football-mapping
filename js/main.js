@@ -43,10 +43,10 @@ $(document).ready(function() {
 		 	//$("<li/>").text(r.rivalry_info).appendTo(list);
 		 }	
 
-		 $("a.dataLink").click(function(event) {
+		 $("a.dataLink").click(function() {
 			//console.log(event.srcElement.hash);
 		 	$("#controlwrapper").animate({marginBottom: "-440px"}, 400);//Hide bottom panel
-		 	showData(event.srcElement.hash);
+		 	showData($(this).attr("href"));
 		 });		 
 		 
 		//Build map
@@ -62,9 +62,8 @@ $(document).ready(function() {
 			
 		function showData(what) {
 			var team1_variable,team2_variable;
-			if (what.indexOf("riv")!=-1) {
+			if (what.indexOf("#riv")!=-1) {
 				current_rivalry = what.substr(4);
-				//console.log(current_rivalry);
 				//current_rivalry = 0; // this is what we will change with our drop down select box
 				team1 = rivalries[current_rivalry]['teams'][0]['variable'];
 				team2 = rivalries[current_rivalry]['teams'][1]['variable'];
