@@ -11,7 +11,7 @@ $(document).ready(function() {
 			});
 			
 			var team1_statistic,team2_statistic,team1,team2;
-			var colorMin,colorMax;
+			var colorMin,colorMax,geojson;
 			function show(t1,t2) {
 				team1=t1;
 				team2=t2;
@@ -53,7 +53,13 @@ $(document).ready(function() {
 			
 				$('#team2logo').attr("src", teams[team2]['crest']);		
 				$('#team2name').text(teams[team2]['name']);
-			}
+				
+				if (geojson) {
+					geojson.setStyle(style);
+				}
+			}//end show
+			
+			show("ManU","ManCity");
 					
 				var map = L.map('map').setView([54.6342, -5.2], 6);
 
@@ -111,7 +117,7 @@ $(document).ready(function() {
 				});
 			}			
 
-			function style(feature) {
+			var style=function(feature) {
 				
 				var value1,value2; //temp variables for storing statistics
 				
