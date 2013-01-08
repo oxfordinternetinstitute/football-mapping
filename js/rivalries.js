@@ -19,7 +19,7 @@ rivalries=[
         "teams": [{
 					"name": "Arsenal",	
 					"crest": "img/crests/Arsenal_FC.png",
-					"color": "#a00",
+					"color": "#a00000",
 					"variable": "arsenal"
 				},
 				{
@@ -51,7 +51,7 @@ rivalries=[
         "teams": [{
 					"name": "Newcastle",	
 					"crest": "img/crests/Newcastle_United.png",
-					"color": "#000",
+					"color": "#000000",
 					"variable": "newcastleunited"
 				},
 				{
