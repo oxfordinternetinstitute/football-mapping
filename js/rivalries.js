@@ -1,4 +1,4 @@
-rivalries=[
+var rivalries=[
     {
         "teams": [{
 					"name": "Manchester United",	
@@ -95,4 +95,4 @@ rivalries=[
         "rivalry_info": "No name.",
 		"centre_map": [54.2323,-01,2345]
     },
-]
+];
