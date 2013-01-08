@@ -3,7 +3,7 @@ rivalries=[
         "teams": [{
 					"name": "Manchester United",	
 					"crest": "img/crests/Manchester_United_FC.png",
-					"color": "#d02d3e",
+					"color": "#C40000",
 					"variable": "manchesterunited"
 				},
 				{
@@ -14,5 +14,85 @@ rivalries=[
 				}],
         "rivalry_info": "The Manchester derby.",
 		"centre_map": [54.2323,-01,2345]
-    }
+    },
+    {
+        "teams": [{
+					"name": "Arsenal",	
+					"crest": "img/crests/Arsenal_FC.png",
+					"color": "#a00",
+					"variable": "arsenal"
+				},
+				{
+					"name": "Tottenham Hotspur",	
+					"crest": "img/crests/Tottenham_Hotspur.png",
+					"color": "#204066",
+					"variable": "tottenhamhotspur"
+				}],
+        "rivalry_info": "The North London derby.",
+		"centre_map": [54.2323,-01,2345]
+    },
+    {
+        "teams": [{
+					"name": "Liverpool",	
+					"crest": "img/crests/Liverpool_FC.png",
+					"color": "#9E1B34",
+					"variable": "liverpool"
+				},
+				{
+					"name": "Everton",	
+					"crest": "img/crests/Everton_FC.png",
+					"color": "#002366",
+					"variable": "everton"
+				}],
+        "rivalry_info": "The Merseyside derby.",
+		"centre_map": [54.2323,-01,2345]
+    },
+    {
+        "teams": [{
+					"name": "Newcastle",	
+					"crest": "img/crests/Newcastle_United.png",
+					"color": "#000",
+					"variable": "newcastleunited"
+				},
+				{
+					"name": "Sunderland",	
+					"crest": "img/crests/Sunderland.png",
+					"color": "#ff0000",
+					"variable": "sunderland"
+				}],
+        "rivalry_info": "The Tyne-Wear derby.",
+		"centre_map": [54.2323,-01,2345]
+    },
+    {
+        "teams": [{
+					"name": "Chelsea",	
+					"crest": "img/crests/Chelsea_FC.png",
+					"color": "#002366",
+					"variable": "chelsea"
+				},
+				{
+					"name": "Fulham",	
+					"crest": "img/crests/Fulham_FC.png",
+					"color": "#ffffff",
+					"variable": "fulham"
+				}],
+        "rivalry_info": "The West London derby.",
+		"centre_map": [54.2323,-01,2345]
+    },
+    {
+        "teams": [{
+					"name": "Aston Villa",	
+					"crest": "img/crests/Aston_Villa.png",
+					"color": "#6A1D44",
+					"variable": "astonvilla"
+				},
+				{
+					"name": "West Bromwich Albion",	
+					"crest": "img/crests/West_Bromwich_Albion.png",
+					"color": "#000080",
+					"variable": "westbromwichalbion"
+				}],
+        "rivalry_info": "No name.",
+		"centre_map": [54.2323,-01,2345]
+    },
 ]

@@ -36,6 +36,13 @@
 			opacity:1;
 		}
 		
+		div {
+			-moz-user-select: none; 
+	        -khtml-user-select: none; 
+	        -webkit-user-select: none; 
+	        -o-user-select: none;
+		}
+		
 		.info {
 			padding: 6px 8px;
 			font: 14px/16px Arial, Helvetica, sans-serif;
@@ -166,7 +173,7 @@
 				layer.setStyle({
 					weight: 2,
 					color: '#666666',
-					fillOpacity: 0.3
+					fillOpacity: 0.5
 				});
 
 				if (!L.Browser.ie && !L.Browser.opera) {
@@ -211,7 +218,7 @@
 					weight: 1,
 					opacity: 1,
 					color: '#ffffff',
-					fillOpacity: 0.5,
+					fillOpacity: 0.7,
 					fillColor: polygoncolor,
 
 				};
