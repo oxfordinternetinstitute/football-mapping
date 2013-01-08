@@ -75,6 +75,9 @@
 		}
 		.overlay {
 			background: rgba(0,0,0,0.8);
+			-webkit-box-shadow: 0px -3px 17px rgba(50, 50, 50, 0.72);
+			-moz-box-shadow:    0px -3px 17px rgba(50, 50, 50, 0.72);
+			box-shadow:         0px -3px 17px rgba(50, 50, 50, 0.72);
 		}
 		.title {
 			top:10px;
@@ -89,29 +92,23 @@
 		
 		#controlwrapper {
 			position:absolute;
-			background: rgba(0,0,0,0.8);
-			-webkit-box-shadow: 0px -3px 17px rgba(50, 50, 50, 0.72);
-			-moz-box-shadow:    0px -3px 17px rgba(50, 50, 50, 0.72);
-			box-shadow:         0px -3px 17px rgba(50, 50, 50, 0.72);
+
 			bottom:0px;
 			left:0%;
 			right:0%;
 			text-align:center;
+			margin-bottom:-320px;
 		}
 		
 		#controls {
-			height:300px;
-			background-color:rgba(255,255,255,0.9);
+			height:280px;
+			background-color:rgba(255,255,255,1);
 			padding:20px;
 		}
-		
-		.leaflet-control-zoom  {
-			
-			zoom:150%;
-		}
+	
 		
 		
-	    .myButton {
+	    .controlButton {
 
 	        -moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
 	        -webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
@@ -144,7 +141,7 @@
 	        text-shadow:0px 1px 0px #854629;
 
 	    }
-	    .myButton:hover {
+	    .controlButton:hover {
 
 	        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
 	        background:-moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
@@ -156,7 +153,7 @@
 
 	        background-color:#bc3315;
 	    }
-	    .myButton:active {
+	    .controlButton:active {
 	        position:relative;
 	        top:1px;
 	    }
@@ -177,8 +174,9 @@
 
 		<div id="map"></div>
 		<div id="controlwrapper">
+			<div style="position:relative;left:450px;top:60px;"><a href="#" class="controlButton" id="controlButton">Select a Rivalry</a></div>
 			<div class="overlay header">
-				<div style="width:300px;text-align:center;margin:0 auto;height:75px;padding-top:10px;color:white">
+				<div style="width:350px;text-align:center;margin:0 auto;height:85px;padding-top:15px;color:white">
 					<div id="team1" style="float:left;">
 						<image id="team1logo" src="" style="width:50px;height:50px" />
 						<br/><span id="team1name"></span>
@@ -188,9 +186,7 @@
 						<image id="team2logo" src="" style="width:50px;height:50px" />
 						<br/><span id="team2name"></span>
 					</div>				
-					<div id="vs" style="height:200px;line-height:60px;font-size:38px">Vs.
-						<div style="position:relative;left:450px;top:-65px;"><a href="#" class="myButton">Select a Rivalry</a></div>
-						</div>
+					<div id="vs" style="height:200px;line-height:60px;font-size:38px">V</div>
 					
 				</div>
 			</div>
@@ -204,6 +200,13 @@
 		
 		<script>
 		
+<<<<<<< HEAD
+=======
+		$('#controlButton').click(function () {
+			 $("#controlwrapper").animate({marginBottom: 0}, 400);
+		 });
+		
+>>>>>>> css fixes
 			var current_rivalry = 0; // this is what we will change with our drop down select box
 			var team1_variable = rivalries[current_rivalry]['teams'][0]['variable'];
 			var team2_variable = rivalries[current_rivalry]['teams'][1]['variable'];
@@ -247,7 +250,6 @@
 
 
 			L.tileLayer('http://{s}.tile.cloudmade.com/{key}/22677/256/{z}/{x}/{y}.png', {
-				attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2012 CloudMade',
 				key: 'BC9A493B41014CAABB98F0471D759707'
 			}).addTo(map);
 
