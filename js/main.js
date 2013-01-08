@@ -3,7 +3,7 @@ $(document).ready(function() {
 
 		//global vars
 		var current_rivalry = 0; // this is what we will change with our drop down select box
-		var team1_statistic,team2_statistic,team1,team2;
+		var team1,team2;
 		var colorMin,colorMax,geojson;
 
 		$('#controlButton').click(function () {
@@ -66,35 +66,31 @@ $(document).ready(function() {
 				current_rivalry = what.substr(4);
 				//console.log(current_rivalry);
 				//current_rivalry = 0; // this is what we will change with our drop down select box
-				team1_variable = rivalries[current_rivalry]['teams'][0]['variable'];
-				team2_variable = rivalries[current_rivalry]['teams'][1]['variable'];
+				team1 = rivalries[current_rivalry]['teams'][0]['variable'];
+				team2 = rivalries[current_rivalry]['teams'][1]['variable'];
 				
 				$('#team2logo').show();
 				$('#team2name').show();
 				$("#vs").show();
 
 			} else {
-				team1_variable = teamsData[what.substr(1)]['variable'];
-				team2_variable = "random";
+				team1 = teamsData[what.substr(1)]['variable'];
+				team2 = "random";
+				
+				//set random color to lighter shade of team1 color
+				teamsData[team2]['color']=getLightShade(teamsData[team1]['color']);
 				
 				$('#team2logo').hide();
 				$('#team2name').hide();
 				$("#vs").hide();
 			}
-			
-			team1_statistic = team1_variable;//+'_norm';
-			team2_statistic = team2_variable;//+'_norm';
-			team1=team1_variable;
-			team2=team2_variable;
-
-			var value1,value2;
 		
 			//var colorMin=1,colorMax=0;
 			var colorDist=[];
 			for (var i=0; i<uk_post_districts.features.length; i++){
 				var postcode = uk_post_districts.features[i].properties["post_4"];
-				var t1 = twitterData[postcode][team1_statistic];
-				var t2 = twitterData[postcode][team2_statistic];
+				var t1 = twitterData[postcode][team1];
+				var t2 = twitterData[postcode][team2];
 				if (t1==0||t2==0) continue;
 				var n = t1/(t1+t2);
 				/*if (n<colorMin) {
@@ -173,17 +169,9 @@ $(document).ready(function() {
 				
 				var value1,value2; //temp variables for storing statistics
 				
-				/*$.each(feature.twitter_data, function( key, value ) {
-				 	if (key == team1_statistic) {
-						value1 = value;
-					} else if (key == team2_statistic) {
-						value2 = value;	
-					}
-				});*/
-				
 				var postcode=feature.properties.post_4;
-				value1=twitterData[postcode][team1_statistic];
-				value2=twitterData[postcode][team2_statistic];
+				value1=twitterData[postcode][team1];
+				value2=twitterData[postcode][team2];
 														
 				//polygoncolor = value1 > value2 ? rivalries[current_rivalry]['teams'][0]['color'] : rivalries[current_rivalry]['teams'][1]['color'];
 				//polygoncolor = blend(rivalries[current_rivalry]['teams'][0]['color'],value1,

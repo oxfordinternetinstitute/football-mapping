@@ -60,3 +60,11 @@ function componentToHex(c) {
 function rgbToHex(r, g, b) {
 	return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
+
+function getLightShade(color) {
+	var c = tinycolor(color);
+	var hsl = c.toHsl();	
+	hsl.l=0.8;
+	var tmp = tinycolor(hsl).toRgb();
+	return rgbToHex(tmp.r,tmp.g,tmp.b);
+}
