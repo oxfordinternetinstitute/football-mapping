@@ -83,13 +83,13 @@ rivalries=[
         "teams": [{
 					"name": "Aston Villa",	
 					"crest": "img/crests/Aston_Villa.png",
-					"color": "#6A1D44",
+					"color": "#6E2233",
 					"variable": "astonvilla"
 				},
 				{
 					"name": "West Bromwich Albion",	
 					"crest": "img/crests/West_Bromwich_Albion.png",
-					"color": "#000080",
+					"color": "#001F80",
 					"variable": "westbromwichalbion"
 				}],
         "rivalry_info": "No name.",
