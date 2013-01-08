@@ -135,16 +135,23 @@
 			var value1,value2;
 			
 			var colorMin=1,colorMax=0;
+			var colorDist=[];
 			for (var i=0; i<area_codes.features.length; i++){
 				var team1 = area_codes.features[i].twitter_data[team1_statistic];
 				var team2 = area_codes.features[i].twitter_data[team2_statistic];
 				var n = team1/(team1+team2);
-				if (n<colorMin) {
+				/*if (n<colorMin) {
 					colorMin=n;
 				} else if (n>colorMax) {
 					colorMax=n;
-				}
+				}*/
+				colorDist.push(n);
 			}
+			//console.log(colorMin);
+			//console.log(colorMax);
+			colorDist.sort();
+			colorMin=colorDist[9];
+			colorMax=colorDist[colorDist.length-9];
 			//console.log(colorMin);
 			//console.log(colorMax);
 			
@@ -262,6 +269,9 @@
 			function normBlend(a,b,weightA) {
 				a=hexToRgb(a);
 				b=hexToRgb(b);
+				
+				weightA=(weightA>1)?1:weightA;
+				weightA=(weightA<0)?0:weightA;
 
 				var blend = {};
 				blend.r=a.r*weightA+b.r*(1-weightA);
