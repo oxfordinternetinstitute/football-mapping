@@ -19,7 +19,7 @@ $(document).ready(function() {
 		 	 $("<a/>",{
 		 		"href":"#riv"+i,
 		 		"title":r.rivalry_info,
-		 		"text": r.rivalry_info,
+		 		"text": r.name,
 		 		"class": "dataLink"/*,
 		 		"data-index":i*/
 		 		}).appendTo(li);
