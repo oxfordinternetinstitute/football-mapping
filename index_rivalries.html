@@ -206,13 +206,15 @@
 				
 				$.each(feature.twitter_data, function( key, value ) {
 				 	if (key == team1_statistic) {
-						value1 = value;					
+						value1 = value;
 					} else if (key == team2_statistic) {
 						value2 = value;	
 					}
 				});
 														
-				polygoncolor = value1 > value2 ? rivalries[current_rivalry]['teams'][0]['color'] : rivalries[current_rivalry]['teams'][1]['color'];
+				//polygoncolor = value1 > value2 ? rivalries[current_rivalry]['teams'][0]['color'] : rivalries[current_rivalry]['teams'][1]['color'];
+				polygoncolor = blend(rivalries[current_rivalry]['teams'][0]['color'],value1,
+					rivalries[current_rivalry]['teams'][1]['color'],value2);
 
 				return {
 					weight: 1,
@@ -236,7 +238,49 @@
 				style: style,
 				onEachFeature: onEachFeature
 			}).addTo(map);
-						
+			
+			
+			//Color blending functions
+			function blend(a,weightA,b,weightB) {
+				a=hexToRgb(a);
+				b=hexToRgb(b);
+
+				console.log(a);
+				console.log(b);
+	
+				var weightSum = weightA+weightB;
+	
+				var blend = {}
+				blend.r=(a.r*weightA+b.r*weightB)/weightSum;
+				blend.g=(a.g*weightA+b.g*weightB)/weightSum;
+				blend.b=(a.b*weightA+b.b*weightB)/weightSum;
+				console.log(blend);
+
+				var hex = rgbToHex(blend.r,blend.g,blend.b);
+				console.log(hex);
+
+				return hex;
+
+			}
+
+			function hexToRgb(hex) {
+				var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+				return result ? {
+					r: parseInt(result[1], 16),
+					g: parseInt(result[2], 16),
+					b: parseInt(result[3], 16)
+				} : null;
+			}
+
+			function componentToHex(c) {
+				c=Math.round(c);
+				var hex = c.toString(16);
+				return hex.length == 1 ? "0" + hex : hex;
+			}
+
+			function rgbToHex(r, g, b) {
+				return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+			}		
 		</script>
 
 
