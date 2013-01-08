@@ -73,26 +73,93 @@
 			opacity: 0.7;
 		}
 		.overlay {
-			position:absolute;
 			background: rgba(0,0,0,0.8);
-			box-shadow: 0 0 15px rgba(0,0,0,0.2); 
 		}
 		.title {
 			top:10px;
 			right:10px;
 		}
-		.header {
-			top:0px;
-			left:0%;
-			right:0%;
-			text-align:center;
-		}
+
 		.box {
 			bottom:90px;
 			left:30%;
 			right:30%;
 		}
 		
+		#controlwrapper {
+			position:absolute;
+			background: rgba(0,0,0,0.8);
+			-webkit-box-shadow: 0px -3px 17px rgba(50, 50, 50, 0.72);
+			-moz-box-shadow:    0px -3px 17px rgba(50, 50, 50, 0.72);
+			box-shadow:         0px -3px 17px rgba(50, 50, 50, 0.72);
+			bottom:0px;
+			left:0%;
+			right:0%;
+			text-align:center;
+		}
+		
+		#controls {
+			height:300px;
+			background-color:rgba(255,255,255,0.9);
+			padding:20px;
+		}
+		
+		.leaflet-control-zoom  {
+			
+			zoom:150%;
+		}
+		
+		
+	    .myButton {
+
+	        -moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
+	        -webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
+	        box-shadow:inset 0px 1px 0px 0px #cf866c;
+
+	        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d0451b), color-stop(1, #bc3315));
+	        background:-moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	        background:-webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	        background:-o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	        background:-ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	        background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315',GradientType=0);
+
+	        background-color:#d0451b;
+
+	        -moz-border-radius:3px;
+	        -webkit-border-radius:3px;
+	        border-radius:3px;
+
+	        border:1px solid #942911;
+			height:20px
+	        display:inline-block;
+	        color:#ffffff;
+	        font-family:arial;
+	        font-size:13px;
+	        font-weight:normal;
+	        padding:6px 24px;
+	        text-decoration:none;
+
+	        text-shadow:0px 1px 0px #854629;
+
+	    }
+	    .myButton:hover {
+
+	        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
+	        background:-moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+	        background:-webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+	        background:-o-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+	        background:-ms-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+	        background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+	        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b',GradientType=0);
+
+	        background-color:#bc3315;
+	    }
+	    .myButton:active {
+	        position:relative;
+	        top:1px;
+	    }
+
 		
 		</style>
     </head>
@@ -108,24 +175,35 @@
         <!-- Add your site or application content here -->
 
 		<div id="map"></div>
-		<div class="overlay header">
-			<div style="width:400px;display:block;text-align:center;margin:0 auto;height:75px;padding-top:10px;color:white">
-				<div id="team1" style="float:left;">
-					<image id="team1logo" src="" style="width:50px;height:50px" />
-					<br/><span id="team1name"></span>
-				</div>	
+		<div id="controlwrapper">
+			<div class="overlay header">
+				<div style="width:300px;text-align:center;margin:0 auto;height:75px;padding-top:10px;color:white">
+					<div id="team1" style="float:left;">
+						<image id="team1logo" src="" style="width:50px;height:50px" />
+						<br/><span id="team1name"></span>
+					</div>	
 				
-				<div id="team2" style="float:right">
-					<image id="team2logo" src="" style="width:50px;height:50px" />
-					<br/><span id="team2name"></span>
-				</div>				
-				<div id="vs" style="height:200px;line-height:60px;font-size:38px">Vs.</div>
+					<div id="team2" style="float:right">
+						<image id="team2logo" src="" style="width:50px;height:50px" />
+						<br/><span id="team2name"></span>
+					</div>				
+					<div id="vs" style="height:200px;line-height:60px;font-size:38px">Vs.
+						<div style="position:relative;left:450px;top:-65px;"><a href="#" class="myButton">Select a Rivalry</a></div>
+						</div>
+					
+				</div>
+			</div>
+			<div id="controls">
+				<div style="width:400px;margin:0 auto">
+					<h1>Select a Rivalry</h1>
+					<p>Some blurb goes here but the meantime I will just write nonsense.</p>
+				</div>
 			</div>
 		</div>
 		
 		<script>
 		
-			var current_rivalry = 0; // this is what we will change with our drop down select box
+			var current_rivalry = 4; // this is what we will change with our drop down select box
 			var team1_variable = rivalries[current_rivalry]['teams'][0]['variable'];
 			var team2_variable = rivalries[current_rivalry]['teams'][1]['variable'];
 			
