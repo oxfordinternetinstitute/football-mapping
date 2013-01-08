@@ -92,7 +92,6 @@
 			left:30%;
 			right:30%;
 		}
-
 		
 		
 		</style>
@@ -164,7 +163,7 @@
 			$('#team2logo').attr("src", rivalries[current_rivalry]['teams'][1]['crest']);		
 			$('#team2name').text(rivalries[current_rivalry]['teams'][1]['name']);
 					
-			var map = L.map('map').setView([54.6342, -3.2], 6);
+			var map = L.map('map').setView([54.6342, -5.2], 6);
 
 
 			L.tileLayer('http://{s}.tile.cloudmade.com/{key}/22677/256/{z}/{x}/{y}.png', {
@@ -192,8 +191,8 @@
 
 				layer.setStyle({
 					weight: 2,
-					color: '#666666',
-					fillOpacity: 0.5
+					color: '#ffffff',
+					fillOpacity: 0.6
 				});
 
 				if (!L.Browser.ie && !L.Browser.opera) {
@@ -240,10 +239,10 @@
 				polygoncolor = normBlend(rivalries[current_rivalry]['teams'][0]['color'],rivalries[current_rivalry]['teams'][1]['color'],col);
 
 				return {
-					weight: 1,
+					weight: 0.5,
 					opacity: 1,
 					color: '#ffffff',
-					fillOpacity: 0.7,
+					fillOpacity: 0.8,
 					fillColor: polygoncolor,
 
 				};
