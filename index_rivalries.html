@@ -172,22 +172,19 @@
 			}).addTo(map);
 
 			// control that shows state info on hover
-			var info = L.control();
 
-			info.onAdd = function (map) {
-				this._div = L.DomUtil.create('div', 'info');
-				this.update();
-				return this._div;
+			function updateInfoBox(props, twitter_data) {
+				if (!props) {
+					$('#info').hide();
+				} else {
+					$('#info').show();
+					this._div.innerHTML = '<h4>Twitter Support</h4> Postcode region:' +  (props ?
+					'<b>' + props.post_2 + '</b><br />'+rivalries[current_rivalry]['teams'][0]['name']+': '+ twitter_data[team1_statistic] + '<br>'+rivalries[current_rivalry]['teams'][1]['name']+': '+ twitter_data[team2_statistic] : 'Hover over a postcode region');
+						
+				}
+		
 			};
 
-			info.update = function (props, twitter_data) {
-				this._div.innerHTML = '<h4>Twitter Support</h4> Postcode region:' +  (props ?
-					'<b>' + props.post_2 + '</b><br />'+rivalries[current_rivalry]['teams'][0]['name']+': '+ twitter_data[team1_statistic] + '<br>'+rivalries[current_rivalry]['teams'][1]['name']+': '+ twitter_data[team2_statistic] 
-					: 'Hover over a postcode region');
-
-			};
-
-			info.addTo(map);
 
 			function highlightFeature(e) {
 				var layer = e.target;
@@ -202,12 +199,12 @@
 					layer.bringToFront();
 				}
 
-				info.update(layer.feature.properties, layer.feature.twitter_data);
+				// info.update(layer.feature.properties, layer.feature.twitter_data);
 			}
 		
 			function resetHighlight(e) {
 				geojson.resetStyle(e.target);
-				info.update();
+				// info.update();
 			}
 
 			function zoomToFeature(e) {
