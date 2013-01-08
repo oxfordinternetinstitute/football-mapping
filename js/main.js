@@ -12,12 +12,61 @@ $(document).ready(function() {
 			
 			var team1_statistic,team2_statistic,team1,team2;
 			var colorMin,colorMax,geojson;
-			function show(t1,t2) {
+			function show(t1,t2) {			
 				team1=t1;
 				team2=t2;
-				if (team1=="" || team2=="") return;
+				console.log(t2);
+				if (team2=="") {
+					showOne();
+				} else {
+					showTwo();
+				}				
+			}
+			
+			function showOne() {
 				//var current_rivalry = 0; // this is what we will change with our drop down select box
 				var team1_variable = teams[team1]['variable'];
+				team1_statistic = team1_variable;//+'_norm';
+				var value1,value2;
+			
+				colorMin=1,colorMax=0;
+				var colorDist=[];
+				for (var i=0; i<area_codes.features.length; i++){
+					var t1 = area_codes.features[i].twitter_data[team1_statistic];
+					colorDist.push(t1);
+				}
+				//console.log(colorMin);
+				//console.log(colorMax);
+				colorDist.sort();
+				colorMin=colorDist[9];
+				colorMax=colorDist[colorDist.length-9];
+				//console.log(colorMin);
+				//console.log(colorMax);
+			
+			
+				// this will be refactored into some sort of changeRivalry() function
+				$('#team1logo').attr("src", teams[team1]['crest']);
+				$('#team1name').text(teams[team1]['name']);
+			
+				$('#team2logo').hide();
+				$('#team2name').hide();
+				$("#vs").hide();
+				
+				if (geojson) {
+					geojson.setStyle(styleOne);
+				}
+			}//end ShowOne 
+			
+			function showTwo() {
+			
+			
+				$('#team2logo').show();
+				$('#team2name').show();
+				$("#vs").show();
+				
+				//var current_rivalry = 0; // this is what we will change with our drop down select box
+				var team1_variable = teams[team1]['variable'];
+				console.log(team2);
 				var team2_variable = teams[team2]['variable'];
 			
 				team1_statistic = team1_variable;//+'_norm';
@@ -55,9 +104,9 @@ $(document).ready(function() {
 				$('#team2name').text(teams[team2]['name']);
 				
 				if (geojson) {
-					geojson.setStyle(style);
+					geojson.setStyle(styleTwo);
 				}
-			}//end show
+			}//end showTwo
 			
 			show("ManU","ManCity");
 					
@@ -115,9 +164,36 @@ $(document).ready(function() {
 					mouseout: resetHighlight,
 					click: zoomToFeature
 				});
-			}			
+			}
+			
+			var styleOne=function(feature) {
+				
+				var value1; //temp variables for storing statistics
+				
+				$.each(feature.twitter_data, function( key, value ) {
+				 	if (key == team1_statistic) {
+						value1 = value;
+					}
+				});
+														
+				//polygoncolor = value1 > value2 ? rivalries[current_rivalry]['teams'][0]['color'] : rivalries[current_rivalry]['teams'][1]['color'];
+				//polygoncolor = blend(rivalries[current_rivalry]['teams'][0]['color'],value1,
+				//	rivalries[current_rivalry]['teams'][1]['color'],value2);
+				var col = value1;
+				col = (col-colorMin)*(1/(colorMax-colorMin));
+				polygoncolor = normBlend(teams[team1]['color'],"#FFFFFF",col);
 
-			var style=function(feature) {
+				return {
+					weight: 0.5,
+					opacity: 1,
+					color: '#ffffff',
+					fillOpacity: 0.8,
+					fillColor: polygoncolor,
+
+				};
+			}		
+
+			var styleTwo=function(feature) {
 				
 				var value1,value2; //temp variables for storing statistics
 				
@@ -155,7 +231,7 @@ $(document).ready(function() {
 					}
 
 			geojson = L.geoJson(area_codes, {
-				style: style,
+				style: styleTwo,
 				onEachFeature: onEachFeature
 			}).addTo(map);
 			
