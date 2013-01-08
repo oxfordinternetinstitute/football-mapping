@@ -11,7 +11,7 @@ for line in fhCsv:
 		j={}
 		line=line.strip().split(",")
 		for i in range(1,len(header)):
-			j[header[i]]=line[i]
+			j[header[i]]=int(line[i])
 		jsonDat[line[0]]=j
 
 jOut=open("data.js","w")
