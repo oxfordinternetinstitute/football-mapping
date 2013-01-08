@@ -161,7 +161,7 @@ $(document).ready(function() {
 				layer.on({
 					mouseover: highlightFeature,
 					mouseout: resetHighlight,
-					click: zoomToFeature
+					//click: zoomToFeature //Removing for now https://github.com/oxfordinternetinstitute/football-mapping/issues/5
 				});
 			}			
 
