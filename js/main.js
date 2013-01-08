@@ -103,8 +103,8 @@ $(document).ready(function() {
 			//console.log(colorMin);
 			//console.log(colorMax);
 			colorDist.sort();
-			colorMin=colorDist[5];
-			colorMax=colorDist[colorDist.length-5];
+			colorMin=colorDist[0];
+			colorMax=colorDist[colorDist.length-1];
 			//console.log(colorMin);
 			//console.log(colorMax);
 		
