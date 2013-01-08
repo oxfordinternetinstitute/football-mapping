@@ -15,7 +15,6 @@ $(document).ready(function() {
 			function show(t1,t2) {			
 				team1=t1;
 				team2=t2;
-				console.log(t2);
 				if (team2=="") {
 					showOne();
 				} else {
@@ -66,7 +65,6 @@ $(document).ready(function() {
 				
 				//var current_rivalry = 0; // this is what we will change with our drop down select box
 				var team1_variable = teams[team1]['variable'];
-				console.log(team2);
 				var team2_variable = teams[team2]['variable'];
 			
 				team1_statistic = team1_variable;//+'_norm';
