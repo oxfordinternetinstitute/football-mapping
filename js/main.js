@@ -176,13 +176,13 @@ $(document).ready(function() {
 				//polygoncolor = value1 > value2 ? rivalries[current_rivalry]['teams'][0]['color'] : rivalries[current_rivalry]['teams'][1]['color'];
 				//polygoncolor = blend(rivalries[current_rivalry]['teams'][0]['color'],value1,
 				//	rivalries[current_rivalry]['teams'][1]['color'],value2);
-				var col = value1/(value1+value2);
-				col = (col-colorMin)*(1/(colorMax-colorMin));
 				
 				var polygoncolor;
-				if (value1==0 && team2=="random") {
-					polygoncolor="#000000";
+				if (value1==0 && (team2=="random"||value2==0)) {
+					polygoncolor="none";
 				} else {
+					var col = value1/(value1+value2);
+					col = (col-colorMin)*(1/(colorMax-colorMin));
 					polygoncolor = normBlend(teamsData[team1]['color'],teamsData[team2]['color'],col);
 				}
 
