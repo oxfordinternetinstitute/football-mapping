@@ -32,7 +32,9 @@ $(document).ready(function() {
 				var colorDist=[];
 				for (var i=0; i<area_codes.features.length; i++){
 					var t1 = area_codes.features[i].twitter_data[team1_statistic];
-					colorDist.push(t1);
+					var t2 = area_codes.features[i].twitter_data["random"]*400;
+					if (t1+t2==0) continue;
+					var n = t1/(t1+t2);
 				}
 				//console.log(colorMin);
 				//console.log(colorMax);
@@ -58,10 +60,15 @@ $(document).ready(function() {
 			
 			function showTwo() {
 			
-			
-				$('#team2logo').show();
-				$('#team2name').show();
-				$("#vs").show();
+				if (team2=="Random") {
+					$('#team2logo').hide();
+					$('#team2name').hide();
+					$("#vs").hide();
+				} else {
+					$('#team2logo').show();
+					$('#team2name').show();
+					$("#vs").show();
+				}
 				
 				//var current_rivalry = 0; // this is what we will change with our drop down select box
 				var team1_variable = teams[team1]['variable'];
@@ -164,9 +171,11 @@ $(document).ready(function() {
 				});
 			}
 			
-			var styleOne=function(feature) {
+			/*var styleOne=function(feature) {
 				
 				var value1; //temp variables for storing statistics
+				
+				console.log(feature);
 				
 				$.each(feature.twitter_data, function( key, value ) {
 				 	if (key == team1_statistic) {
@@ -177,6 +186,8 @@ $(document).ready(function() {
 				//polygoncolor = value1 > value2 ? rivalries[current_rivalry]['teams'][0]['color'] : rivalries[current_rivalry]['teams'][1]['color'];
 				//polygoncolor = blend(rivalries[current_rivalry]['teams'][0]['color'],value1,
 				//	rivalries[current_rivalry]['teams'][1]['color'],value2);
+				console.log("yo="+value1);
+				console.log(value1);
 				var col = value1;
 				col = (col-colorMin)*(1/(colorMax-colorMin));
 				polygoncolor = normBlend(teams[team1]['color'],"#FFFFFF",col);
@@ -189,7 +200,7 @@ $(document).ready(function() {
 					fillColor: polygoncolor,
 
 				};
-			}		
+			}*/		
 
 			var styleTwo=function(feature) {
 				
