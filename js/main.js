@@ -200,7 +200,7 @@ $(document).ready(function() {
 						layer.on({
 							mouseover: highlightFeature,
 							mouseout: resetHighlight,
-							click: zoomToFeature
+							//click: zoomToFeature //See Issue 5
 						});
 					}
 
