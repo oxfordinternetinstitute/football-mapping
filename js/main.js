@@ -120,19 +120,25 @@ $(document).ready(function() {
 			info.update = function (props) {
 				if (props) {
 					var postcode=props.post_4;
-					var str = '<h5>Twitter Fandom</h5> Postcode region: ' + postcode+"<br /><ul>";
+					var rand = twitterData[postcode]["random"];
+					var str = '<h5>Twitter Fandom</h5><p>For postcode district: ' + postcode+"</p><ul>";
 					for (var team in teamsData) {
-						//if (team=="random") continue;
+						if (team=="random") continue;
+						
+						var stat = ""+(Math.round(1000*twitterData[postcode][team]/rand)/100);
+						if (stat.indexOf(".")==-1) stat+=".00";
+						else if (stat.indexOf(".")==stat.length) stat+="0";
+						
 						str+="<li>";
 						if (team==team1 || team==team2)	str+="<strong style='color:#08C'>"
-						str+=teamsData[team]["name"] + ": " + twitterData[postcode][team];
+						str+=teamsData[team]["name"] + ": " + stat;
 						if (team==team1 || team==team2)	str+="</strong>"
 						str+="</li>";
 				
 					}	
 						//teamsData[team1]["name"]+': '+ twitterData[postcode][team1] + '<br>'+
 						//teamsData[team2]["name"]+': '+ twitterData[postcode][team2];
-					str+="</ul>";
+					str+="</ul><p>per 1,000 geotagged tweets.";
 					this._div.innerHTML="<small>"+str+"</small>";
 
 				} else {
