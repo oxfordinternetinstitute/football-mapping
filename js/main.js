@@ -3,7 +3,7 @@
 var uk_post_districts;
 //show layer with loading animation
 jQuery.getJSON("data/uk_post_districs.json",function(data) {
-	//hide layer with loading animation
+	$("#loading").hide();
 	uk_post_districts=data;
 	dataReady();
 });
@@ -69,6 +69,7 @@ $(document).ready(function() {
 			key: 'BC9A493B41014CAABB98F0471D759707'
 			}).addTo(map);*/
 		L.tileLayer("http://{s}.tiles.mapbox.com/v3/mapbox.mapbox-warden/{z}/{x}/{y}.png").addTo(map);
+		//L.tileLayer("http://{s}.tiles.mapbox.com/v3/mapbox.mapbox-light/{z}/{x}/{y}.png").addTo(map);
 		//map.addControl(new L.Control.Zoomslider());
 		 
 		/*geojson = L.geoJson(uk_post_districts, {
