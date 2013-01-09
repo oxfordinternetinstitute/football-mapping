@@ -260,11 +260,11 @@ $(document).ready(function() {
 			colorInfo.cutpoints.push(colorDist[Math.floor(colorDist.length*.75)]);
 			//Colors
 			colorInfo.colors=[];
-			colorInfo.colors.push(color1);
-			colorInfo.colors.push(normBlend(color1,color2,.67));
-			//colorInfo.colors.push(normBlend(color1,color2,.5));
-			colorInfo.colors.push(normBlend(color1,color2,.33));
 			colorInfo.colors.push(color2);
+			colorInfo.colors.push(normBlend(color1,color2,.33));
+			//colorInfo.colors.push(normBlend(color1,color2,.5));
+			colorInfo.colors.push(normBlend(color1,color2,.67));
+			colorInfo.colors.push(color1);
 			
 			//console.log(colorDist.join(','));
 			//console.log(colorInfo);
@@ -276,21 +276,12 @@ $(document).ready(function() {
 			//<span class="colorblock"></span>
 			var colorblocks = $("#colorblocks");
 			colorblocks.html("");
-		
-			if (team2=="random") {
-				for (var i=colorInfo.colors.length-1; i>=0; i--) {
-					$("<span/>").addClass("colorblock").css("background-color",
-						//normBlend(color1,color2,i)
-						colorInfo.colors[i]
-						).appendTo(colorblocks);
-				}
-			} else {
-				for (var i=0; i<colorInfo.colors.length; i++) {
-					$("<span/>").addClass("colorblock").css("background-color",
-						//normBlend(color1,color2,i)
-						colorInfo.colors[i]
-						).appendTo(colorblocks);
-				}
+				
+			for (var i=0; i<colorInfo.colors.length; i++) {
+				$("<span/>").addClass("colorblock").css("background-color",
+					//normBlend(color1,color2,i)
+					colorInfo.colors[i]
+					).appendTo(colorblocks);
 			}
 			//console.log(colorblocks);
 		
@@ -358,7 +349,7 @@ $(document).ready(function() {
 					//col = (col-colorMin)*(1/(colorMax-colorMin));
 					//polygoncolor = normBlend(color1,color2,col);
 					polygoncolor=dataToColor(col);
-					/*if (postcode=="BB7") {
+					/*if (postcode=="M32") {
 						console.log(polygoncolor);
 						console.log(col);
 						console.log(colorInfo);
