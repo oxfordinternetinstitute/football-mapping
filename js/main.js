@@ -18,6 +18,10 @@ var current_rivalry = 0; // this is what we will change with our drop down selec
 var team1,team2;
 var colorMin,colorMax,geojson,map,info;
 var color1,color2;
+var colorInfo={
+	cutpoints:[],
+	colors:[]
+};
 
 $(document).ready(function() {
 
@@ -224,6 +228,23 @@ $(document).ready(function() {
 			colorDist.sort();
 			colorMin=colorDist[0];
 			colorMax=colorDist[colorDist.length-1];
+			
+			//Quartiles
+			colorInfo.cutpoints=[];
+			colorInfo.cutpoints.push(colorDist[Math.floor(colorDist.length*.25)]);
+			colorInfo.cutpoints.push(colorDist[Math.floor(colorDist.length*.50)]);
+			colorInfo.cutpoints.push(colorDist[Math.floor(colorDist.length*.75)]);
+			//Colors
+			colorInfo.colors=[];
+			colorInfo.colors.push(color1);
+			colorInfo.colors.push(normBlend(color1,color2,.33));
+			//colorInfo.colors.push(normBlend(color1,color2,.5));
+			colorInfo.colors.push(normBlend(color1,color2,.67));
+			colorInfo.colors.push(color2);
+			
+			//console.log(colorDist.join(','));
+			//console.log(colorInfo);
+			
 			//console.log(colorMin);
 			//console.log(colorMax);
 			
@@ -233,7 +254,7 @@ $(document).ready(function() {
 			colorblocks.html("");
 			
 			
-			for (var i=1; i>=0; i-=.25) {
+			for (var i=1; i>=0; i-=.33) {
 				$("<span/>").addClass("colorblock").css("background-color",
 					normBlend(color1,color2,i)
 					).appendTo(colorblocks);
@@ -301,8 +322,14 @@ $(document).ready(function() {
 					polygoncolor="none";
 				} else {
 					var col = value1/(value1+value2);
-					col = (col-colorMin)*(1/(colorMax-colorMin));
-					polygoncolor = normBlend(color1,color2,col);
+					//col = (col-colorMin)*(1/(colorMax-colorMin));
+					//polygoncolor = normBlend(color1,color2,col);
+					polygoncolor=dataToColor(col);
+					/*if (postcode=="BB7") {
+						console.log(polygoncolor);
+						console.log(col);
+						console.log(colorInfo);
+					}*/
 				}
 
 				return {
@@ -321,4 +348,12 @@ $(document).ready(function() {
 							mouseout: resetHighlight,
 							click: zoomToFeature
 						});
-					}
+			}
+			
+			function dataToColor(data) {
+				var i=0;
+				while (i<colorInfo.cutpoints.length && data>colorInfo.cutpoints[i]) {
+					i++;
+				}
+				return colorInfo.colors[i];
+			}
