@@ -60,9 +60,16 @@ $(document).ready(function() {
 		 $("a.dataLink").click(function() {
 			//console.log(event.srcElement.hash);
 		 	$("#controlwrapper").animate({marginBottom: "-340px"}, 400);//Hide bottom panel
+		 	$("#maplegend").toggle();
+		 	$(".info").toggle();
 		 	showData($(this).attr("href"));
 		 });		 
 		 
+		 $("#closeBtn").click(function() {
+		 	$("#controlwrapper").animate({marginBottom: "-340px"}, 400);//Hide bottom panel
+		 	$("#maplegend").toggle();
+		 	$(".info").toggle();
+		 });		 
 		 
 		//Build map
 		var bounds = [[57.5,-8.3],[48.8,2.48]];
@@ -137,6 +144,8 @@ $(document).ready(function() {
 					
 		$('#controlButton').click(function () {
 			var margin = $("#controlwrapper").css("marginBottom").replace("px","");
+			$("#maplegend").toggle();
+		 	$(".info").toggle();
 			$("#controlwrapper").animate({marginBottom: (margin==0)?-340:0}, 400);
 		});
 		
