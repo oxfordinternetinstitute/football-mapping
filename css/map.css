@@ -52,9 +52,9 @@
 		
 		.overlay {
 			background: rgba(0,0,0,0.9);
--webkit-box-shadow: 0px -3px 35px rgba(50, 50, 50, 1);
--moz-box-shadow:    0px -3px 35px rgba(50, 50, 50, 1);
-box-shadow:         0px -3px 35px rgba(50, 50, 50, 1);
+-webkit-box-shadow: 0px -3px 25px rgba(0, 0, 0, 1);
+-moz-box-shadow:    0px -3px 25px rgba(0, 0, 0, 1);
+box-shadow:         0px -3px 25px rgba(0, 0, 0, 1);
 		}
 		
 		.title {
@@ -86,7 +86,7 @@ box-shadow:         0px -3px 35px rgba(50, 50, 50, 1);
 		
 		#controls {
 			height:400px;
-			background-color:rgba(255,255,255,1);
+			background-color:#eeeeee;
 			padding:20px;
 		}
 		
@@ -185,4 +185,14 @@ box-shadow:         0px -3px 35px rgba(50, 50, 50, 1);
 
 .leaflet-container {
 	background:#222222
+}
+
+#infolink {
+	text-shadow:none;
+}
+
+.leaflet-control-zoomslider {
+	position:relative;
+	bottom:105px;
+	left:10px;
 }
