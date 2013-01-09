@@ -25,8 +25,6 @@
 			box-shadow: 0 0 15px rgba(0,0,0,0.2);
 			border-radius: 5px;
 			width:200px;
-			position:relative;
-			top:100px;
 			color:#fff;
 		}
 
@@ -148,11 +146,11 @@ box-shadow:         0px -3px 25px rgba(0, 0, 0, 1);
 	width:380px;
 	text-align:center;
 	margin:0 auto;
-	height:60px;
+	height:50px;
 	padding-top:15px;
 	color:white;
 	position:relative;
-	top:-80px;
+	top:-70px;
 
 
 }
@@ -168,7 +166,7 @@ box-shadow:         0px -3px 25px rgba(0, 0, 0, 1);
 .teamlogo {
 	height:80px;
 	width:80px;
-	padding-bottom:5px;
+	padding-bottom:10px;
 }
 
 .vs {
@@ -181,7 +179,6 @@ box-shadow:         0px -3px 25px rgba(0, 0, 0, 1);
 	margin:0 auto;
 	position:relative;
 	top:20px;
-	border:1px solid #333;
 	overflow:hidden;
 }
 
@@ -211,4 +208,9 @@ box-shadow:         0px -3px 25px rgba(0, 0, 0, 1);
 	display:block;
 	width:120px;
 	line-height:13px;
+}
+
+#controls ul {
+	font-size:10px;
+	line-height:10px;
 }

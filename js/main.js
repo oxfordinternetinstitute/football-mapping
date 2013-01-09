@@ -110,7 +110,7 @@ $(document).ready(function() {
 			info.update = function (props) {
 				if (props) {
 					var postcode=props.post_4;
-					var str = '<h4>Twitter Fandom</h4> Postcode region: ' + postcode;
+					var str = '<h5>Twitter Fandom</h5> Postcode region: ' + postcode;
 					for (var team in teamsData) {
 						//if (team=="random") continue;
 						str+="<br/>";
@@ -120,9 +120,9 @@ $(document).ready(function() {
 					}	
 						//teamsData[team1]["name"]+': '+ twitterData[postcode][team1] + '<br>'+
 						//teamsData[team2]["name"]+': '+ twitterData[postcode][team2];
-					this._div.innerHTML=str;
+					this._div.innerHTML="<small>"+str+"</small>";
 				} else {
-					this._div.innerHTML = '<h4>Twitter Fandom</h4>Hover over a postcode region';
+					this._div.innerHTML = '<h5>Twitter Fandom</h5><small>Hover over a postcode region.</small>';
 				}
 			};
 			info.addTo(map);			
