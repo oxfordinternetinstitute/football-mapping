@@ -72,7 +72,7 @@ var teamsData={
 					"variable": "westbromwichalbion"
 				},
 			"random":{
-					"name":"Random",
+					"name":"Random Sample",
 					"crest":"",
 					"color":"#FFFFFF",
 					"variable":"random"

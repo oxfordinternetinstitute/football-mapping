@@ -57,10 +57,19 @@ $(document).ready(function() {
 		//Build map
 		var bounds = [[58.79,-8.3],[48.8,2.48]];
 		//var mbounds = [[70,-9],[30,5]];
-		map = L.map('map').fitBounds(bounds);///.setView([54.6342, -5.2], 6);
-		L.tileLayer('http://{s}.tile.cloudmade.com/{key}/22677/256/{z}/{x}/{y}.png', {
+		var mapOpts={minZoom:5,maxZoom:9,zoomControl:false};
+		console.log($.browser);
+		if ($.browser.mozilla==true) {
+			//mapOpts["fadeAnimation"]=false;
+			mapOpts["zoomAnimation"]=false;
+			//console.log("Firefox");
+		}
+		map = L.map('map',mapOpts).fitBounds(bounds);///.setView([54.6342, -5.2], 6);
+		/*L.tileLayer('http://{s}.tile.cloudmade.com/{key}/22677/256/{z}/{x}/{y}.png', {
 			key: 'BC9A493B41014CAABB98F0471D759707'
-			}).addTo(map);
+			}).addTo(map);*/
+		L.tileLayer("http://{s}.tiles.mapbox.com/v3/mapbox.mapbox-warden/{z}/{x}/{y}.png").addTo(map);
+		//map.addControl(new L.Control.Zoomslider());
 		 
 		/*geojson = L.geoJson(uk_post_districts, {
 				//style: style,
@@ -79,7 +88,7 @@ $(document).ready(function() {
 					var postcode=props.post_4;
 					var str = '<h4>Twitter Fandom</h4> Postcode region: ' + postcode;
 					for (var team in teamsData) {
-						if (team=="random") continue;
+						//if (team=="random") continue;
 						str+="<br/>";
 						if (team==team1 || team==team2)	str+="<strong>"
 						str+=teamsData[team]["name"] + ": " + twitterData[postcode][team];
@@ -190,7 +199,7 @@ $(document).ready(function() {
 					normBlend(teamsData[team1]['color'],teamsData[team2]['color'],i)
 					).appendTo(colorblocks);
 			}
-			console.log(colorblocks);
+			//console.log(colorblocks);
 		
 		
 			if (geojson) {
@@ -232,7 +241,7 @@ $(document).ready(function() {
 				layer.on({
 					mouseover: highlightFeature,
 					mouseout: resetHighlight,
-					//click: zoomToFeature //Removing for now https://github.com/oxfordinternetinstitute/football-mapping/issues/5
+					click: zoomToFeature
 				});
 			}			
 
@@ -271,6 +280,6 @@ $(document).ready(function() {
 						layer.on({
 							mouseover: highlightFeature,
 							mouseout: resetHighlight,
-							//click: zoomToFeature //See Issue 5
+							click: zoomToFeature
 						});
 					}
