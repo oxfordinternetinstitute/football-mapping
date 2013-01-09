@@ -19,13 +19,25 @@
 		}
 		
 		.info {
-			padding: 8px 10px;
+			padding: 6px 10px;
 			background: white;
 			background: rgba(0,0,0,0.8);
 			box-shadow: 0 0 15px rgba(0,0,0,0.2);
 			border-radius: 5px;
 			width:200px;
 			color:#fff;
+			position:relative;
+			top:10px;
+			right:10px;
+		}
+
+		.info h5 {
+			padding: 0;
+			margin:0;
+		}
+
+		.info li {
+			line-height:12px;
 		}
 
 		.legend {
@@ -79,15 +91,21 @@ box-shadow:         0px -3px 25px rgba(0, 0, 0, 1);
 			left:0%;
 			right:0%;
 			text-align:center;
-			margin-bottom:-440px;
+			margin-bottom:-340px;
 		}
 		
 		#controls {
-			height:400px;
-			background-color:#eeeeee;
+			height:300px;
+			background-color:#ddd;
 			padding:20px;
 		}
 		
+
+		#controls h4 {
+			margin: 0;
+			padding: 0;
+			margin-bottom:10px;
+		}
 		#moreinfo {
 			display: none;
 		}
@@ -210,7 +228,15 @@ box-shadow:         0px -3px 25px rgba(0, 0, 0, 1);
 	line-height:13px;
 }
 
-#controls ul {
-	font-size:10px;
-	line-height:10px;
+#controls li {
+	font-size:12px;
+	line-height:14px;
+}
+
+small {
+	font-size: 10px
+}
+
+small li {
+	line-height: 12px
 }
