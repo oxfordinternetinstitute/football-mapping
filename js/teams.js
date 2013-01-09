@@ -1,148 +1,208 @@
 var teamsData={
-			"manchesterunited":{
-					"name": "Manchester United",	
-					"crest": "Manchester_United_FC.png",
-					"color": "#C40000",
-					"variable": "manchesterunited",
-					"stadium": [53.463056, -2.291389]
-				},
-			"manchestercity":{
-					"name": "Manchester City",	
-					"crest": "Manchester_City.png",
-					"color": "#8CBED6",
-					"variable": "manchestercity",
-					"stadium": [53.483056, -2.200278]
-				},
-			"arsenal":{
-					"name": "Arsenal",	
-					"crest": "Arsenal_FC.png",
-					"color": "#a00000",
-					"variable": "arsenal",
-					"stadium": [51.555, -0.108611]
-				},
-			"tottenhamhotspur":{
-					"name": "Tottenham Hotspur",	
-					"crest": "Tottenham_Hotspur.png",
-					"color": "#002D63",
-					"variable": "tottenhamhotspur",
-					"stadium": [51.603333, -0.065833]
-				},
-			"liverpool":{
-					"name": "Liverpool",	
-					"crest": "Liverpool_FC.png",
-					"color": "#ff0000",
-					"variable": "liverpool",
-					"stadium":[53.430819, -2.960828]
-				},
-			"everton":{
-					"name": "Everton",	
-					"crest": "Everton_FC.png",
-					"color": "#002366",
-					"variable": "everton",
-					"stadium":[ 53.438889, -2.966389]
-				},
-			"newcastleunited":{
-					"name": "Newcastle",	
-					"crest": "Newcastle_United.png",
-					"color": "#000000",
-					"variable": "newcastleunited",
-					"stadium":[54.975556, -1.621667]
-				},
-			"sunderland":{
-					"name": "Sunderland",	
-					"crest": "Sunderland.png",
-					"color": "#ff0000",
-					"variable": "sunderland",
-					"stadium":[54.9144, -1.3882]
-				},
-			"chelsea":{
-					"name": "Chelsea",	
-					"crest": "Chelsea_FC.png",
-					"color": "#002366",
-					"variable": "chelsea",
-					"stadium": [51.481667, -0.191111]
-				},
-			"fulham":{
-					"name": "Fulham",	
-					"crest": "Fulham_FC.png",
-					"color": "#cc0000",
-					"variable": "fulham",
-					"stadium":[51.475, -0.221667]
-				},
-    		"astonvilla":{
-					"name": "Aston Villa",	
-					"crest": "Aston_Villa.png",
-					"color": "#6E2233",
-					"variable": "astonvilla",
-					"stadium":[52.509167, -1.884722]
-				},
-			"westbromwichalbion":{
-					"name": "West Bromwich Albion",	
-					"crest": "West_Bromwich_Albion.png",
-					"color": "#001F80",
-					"variable": "westbromwichalbion",
-					"stadium":[52.509167, -1.963889]
-				},
-			"norwichcity" : {
-					"name": "Norwitch City",
-					"crest":"Norwich_City.png",
-					"color":"#29503b",
-					"variable":"norwichcity",
-					"stadium":[52.622128, 1.308653]
-				},
-			"queensparkrangers":{
-					"name": "Queens Park Rangers",
-					"crest": "QPR.png",
-					"color": "#001F80",
-					"variable": "queensparkrangers",
-					"stadium":[51.509167, -0.232222]
-				},
-			"reading":{
-					"name": "Reading",
-					"crest": "Reading_FC.png",
-					"color": "#001F80",
-					"variable": "reading",
-					"stadium":[51.422222, -0.982778]
-				},
-			"southampton":{
-					"name": "Southampton",
-					"crest": "Southampton.png",
-					"color": "#ff0000",
-					"variable": "southampton",
-					"stadium":[50.905833, -1.391111]
-				},
-			"stokecity":{
-					"name": "Stoke City",
-					"crest": "Stoke_City_FC.png",
-					"color": "#ff0000",
-					"variable": "stokecity",
-					"stadium":[52.988333, -2.175556]
-				},
-			"swanseacity":{
-					"name": "Swansea City",
-					"crest": "Swansea_City_AFC.png",
-					"color": "#000000",
-					"variable": "swanseacity",
-					"stadium":[51.6422, -3.9351]
-				},
-			"westhamunited":{
-					"name": "West Ham United",
-					"crest": "West_Ham_United_FC.png",
-					"color": "#6E2233",
-					"variable": "westhamunited",
-					"stadium":[51.531944, 0.039444]
-				},
-			"wiganathletic":{
-					"name": "Wigan Athletic",
-					"crest": "Wigan_Athletic.png",
-					"color": "#0000ff",
-					"variable": "wiganathletic",
-					"stadium":[53.547778, -2.653889]
-				},
-			"random":{
-					"name":"Random Sample",
-					"crest":"",
-					"color":"#FFFFFF",
-					"variable":"random"
-				}
-}
+    "arsenal": {
+        "color": "#a00000", 
+        "crest": "Arsenal_FC.png", 
+        "name": "Arsenal", 
+        "stadium": [
+            51.555, 
+            -0.108611
+        ], 
+        "variable": "arsenal"
+    }, 
+    "astonvilla": {
+        "color": "#6E2233", 
+        "crest": "Aston_Villa.png", 
+        "name": "Aston Villa", 
+        "stadium": [
+            52.509167, 
+            -1.884722
+        ], 
+        "variable": "astonvilla"
+    }, 
+    "chelsea": {
+        "color": "#002366", 
+        "crest": "Chelsea_FC.png", 
+        "name": "Chelsea", 
+        "stadium": [
+            51.481667, 
+            -0.191111
+        ], 
+        "variable": "chelsea"
+    }, 
+    "everton": {
+        "color": "#002366", 
+        "crest": "Everton_FC.png", 
+        "name": "Everton", 
+        "stadium": [
+            53.438889, 
+            -2.966389
+        ], 
+        "variable": "everton"
+    }, 
+    "fulham": {
+        "color": "#cc0000", 
+        "crest": "Fulham_FC.png", 
+        "name": "Fulham", 
+        "stadium": [
+            51.475, 
+            -0.221667
+        ], 
+        "variable": "fulham"
+    }, 
+    "liverpool": {
+        "color": "#ff0000", 
+        "crest": "Liverpool_FC.png", 
+        "name": "Liverpool", 
+        "stadium": [
+            53.430819, 
+            -2.960828
+        ], 
+        "variable": "liverpool"
+    }, 
+    "manchestercity": {
+        "color": "#8CBED6", 
+        "crest": "Manchester_City.png", 
+        "name": "Manchester City", 
+        "stadium": [
+            53.483056, 
+            -2.200278
+        ], 
+        "variable": "manchestercity"
+    }, 
+    "manchesterunited": {
+        "color": "#C40000", 
+        "crest": "Manchester_United_FC.png", 
+        "name": "Manchester United", 
+        "stadium": [
+            53.463056, 
+            -2.291389
+        ], 
+        "variable": "manchesterunited"
+    }, 
+    "newcastleunited": {
+        "color": "#000000", 
+        "crest": "Newcastle_United.png", 
+        "name": "Newcastle", 
+        "stadium": [
+            54.975556, 
+            -1.621667
+        ], 
+        "variable": "newcastleunited"
+    }, 
+    "norwichcity": {
+        "color": "#29503b", 
+        "crest": "Norwich_City.png", 
+        "name": "Norwitch City", 
+        "stadium": [
+            52.622128, 
+            1.308653
+        ], 
+        "variable": "norwichcity"
+    }, 
+    "queensparkrangers": {
+        "color": "#001F80", 
+        "crest": "QPR.png", 
+        "name": "Queens Park Rangers", 
+        "stadium": [
+            51.509167, 
+            -0.232222
+        ], 
+        "variable": "queensparkrangers"
+    }, 
+    "random": {
+        "color": "#FFFFFF", 
+        "crest": "", 
+        "name": "Random Sample", 
+        "variable": "random"
+    }, 
+    "reading": {
+        "color": "#001F80", 
+        "crest": "Reading_FC.png", 
+        "name": "Reading", 
+        "stadium": [
+            51.422222, 
+            -0.982778
+        ], 
+        "variable": "reading"
+    }, 
+    "southampton": {
+        "color": "#ff0000", 
+        "crest": "Southampton.png", 
+        "name": "Southampton", 
+        "stadium": [
+            50.905833, 
+            -1.391111
+        ], 
+        "variable": "southampton"
+    }, 
+    "stokecity": {
+        "color": "#ff0000", 
+        "crest": "Stoke_City_FC.png", 
+        "name": "Stoke City", 
+        "stadium": [
+            52.988333, 
+            -2.175556
+        ], 
+        "variable": "stokecity"
+    }, 
+    "sunderland": {
+        "color": "#ff0000", 
+        "crest": "Sunderland.png", 
+        "name": "Sunderland", 
+        "stadium": [
+            54.9144, 
+            -1.3882
+        ], 
+        "variable": "sunderland"
+    }, 
+    "swanseacity": {
+        "color": "#000000", 
+        "crest": "Swansea_City_AFC.png", 
+        "name": "Swansea City", 
+        "stadium": [
+            51.6422, 
+            -3.9351
+        ], 
+        "variable": "swanseacity"
+    }, 
+    "tottenhamhotspur": {
+        "color": "#002D63", 
+        "crest": "Tottenham_Hotspur.png", 
+        "name": "Tottenham Hotspur", 
+        "stadium": [
+            51.603333, 
+            -0.065833
+        ], 
+        "variable": "tottenhamhotspur"
+    }, 
+    "westbromwichalbion": {
+        "color": "#001F80", 
+        "crest": "West_Bromwich_Albion.png", 
+        "name": "West Bromwich Albion", 
+        "stadium": [
+            52.509167, 
+            -1.963889
+        ], 
+        "variable": "westbromwichalbion"
+    }, 
+    "westhamunited": {
+        "color": "#6E2233", 
+        "crest": "West_Ham_United_FC.png", 
+        "name": "West Ham United", 
+        "stadium": [
+            51.531944, 
+            0.039444
+        ], 
+        "variable": "westhamunited"
+    }, 
+    "wiganathletic": {
+        "color": "#0000ff", 
+        "crest": "Wigan_Athletic.png", 
+        "name": "Wigan Athletic", 
+        "stadium": [
+            53.547778, 
+            -2.653889
+        ], 
+        "variable": "wiganathletic"
+    }
+};
