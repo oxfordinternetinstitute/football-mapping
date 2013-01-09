@@ -203,8 +203,8 @@ $(document).ready(function() {
 				
 				//set random color to lighter shade of team1 color
 				//teamsData[team2]['color']=getLightShade(teamsData[team1]['color']);
-				color1=getDarkShade(teamsData[team1]['color']);
-				color2=getLightShade(teamsData[team1]['color']);
+				color2=getDarkShade(teamsData[team1]['color']);
+				color1=getLightShade(teamsData[team1]['color']);
 				
 				$('#team2logo').hide();
 				$('#team2name').hide();
