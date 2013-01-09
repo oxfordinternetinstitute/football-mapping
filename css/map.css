@@ -145,14 +145,14 @@ box-shadow:         0px -3px 25px rgba(0, 0, 0, 1);
 }
 
 .menuheader {
-	width:300px;
+	width:380px;
 	text-align:center;
 	margin:0 auto;
-	height:70px;
+	height:60px;
 	padding-top:15px;
 	color:white;
 	position:relative;
-	top:-60px;
+	top:-80px;
 
 
 }
@@ -166,18 +166,28 @@ box-shadow:         0px -3px 25px rgba(0, 0, 0, 1);
 }
 
 .teamlogo {
-	height:75px;
-	width:75px;
+	height:80px;
+	width:80px;
 	padding-bottom:5px;
 }
 
 .vs {
-	line-height:180px;font-size:38px
+	line-height:190px;font-size:38px
+}
+
+#colorblocks {
+	width:125px; 
+	height:15px;text-align:center;clear:both;
+	margin:0 auto;
+	position:relative;
+	top:20px;
+	border:1px solid #333;
+	overflow:hidden;
 }
 
 .colorblock {
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 	display: inline-block;
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
@@ -195,4 +205,10 @@ box-shadow:         0px -3px 25px rgba(0, 0, 0, 1);
 	position:relative;
 	bottom:105px;
 	left:10px;
+}
+
+.teamname {
+	display:block;
+	width:120px;
+	line-height:13px;
 }
