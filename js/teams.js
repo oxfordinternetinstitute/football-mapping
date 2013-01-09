@@ -23,14 +23,14 @@ var teamsData={
 			"tottenhamhotspur":{
 					"name": "Tottenham Hotspur",	
 					"crest": "Tottenham_Hotspur.png",
-					"color": "#204066",
+					"color": "#002D63",
 					"variable": "tottenhamhotspur",
 					"stadium": [51.603333, -0.065833]
 				},
 			"liverpool":{
 					"name": "Liverpool",	
 					"crest": "Liverpool_FC.png",
-					"color": "#9E1B34",
+					"color": "#ff0000",
 					"variable": "liverpool",
 					"stadium":[53.430819, -2.960828]
 				},
