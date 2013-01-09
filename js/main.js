@@ -110,12 +110,6 @@ $(document).ready(function() {
 				stadiums[t]=marker;
 			}
 			
-			function stadiumClick(event) {
-				var hash = event.target.options["var"];
-				document.location.hash=hash;
-				showData("#"+hash);
-			}
-			
 			//Hover
 			info = L.control();
 			info.onAdd = function (map) {
@@ -205,9 +199,13 @@ $(document).ready(function() {
 				
 				//set random color to lighter shade of team1 color
 				//teamsData[team2]['color']=getLightShade(teamsData[team1]['color']);
-				color2=getDarkShade(teamsData[team1]['color']);
-				color1=getLightShade(teamsData[team1]['color']);
-				
+				//color1=getDarkShade(teamsData[team1]['color']);
+				//color2=getLightShade(teamsData[team1]['color']);
+				color1 = teamsData[team1]['color'];
+				color2 = '#aaaaaa';
+
+
+
 				$('#team2logo').hide();
 				$('#team2name').hide();
 				//$(".vs").hide();
@@ -296,7 +294,7 @@ $(document).ready(function() {
 						).appendTo(colorblocks);
 				}
 			} else {
-				for (var i=0; i<colorInfo.colors.length; i++) {
+				for (var i=colorInfo.colors.length-1; i>=0; i--) {
 					$("<span/>").addClass("colorblock").css("background-color",
 						//normBlend(color1,color2,i)
 						colorInfo.colors[i]
