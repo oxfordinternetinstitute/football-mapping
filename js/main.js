@@ -232,7 +232,7 @@ $(document).ready(function() {
 				layer.setStyle({
 					weight: 2,
 					color: '#ffffff',
-					fillOpacity: 0.6
+					fillOpacity: 0.4
 				});
 
 				if (!L.Browser.ie && !L.Browser.opera) {
@@ -284,7 +284,7 @@ $(document).ready(function() {
 					weight: 0.4,
 					opacity: 1,
 					color: polygoncolor,
-					fillOpacity: 0.8,
+					fillOpacity: 1,
 					fillColor: polygoncolor,
 
 				};
