@@ -11,7 +11,7 @@ jQuery.getJSON("data/uk_post_districs.json",function(data) {
 //global vars
 var current_rivalry = 0; // this is what we will change with our drop down select box
 var team1,team2;
-var colorMin,colorMax,geojson,map;
+var colorMin,colorMax,geojson,map,info;
 
 $(document).ready(function() {
 
@@ -66,6 +66,33 @@ $(document).ready(function() {
 				//style: style,
 				onEachFeature: onEachFeature
 			}).addTo(map);*/
+			
+			//Hover
+			info = L.control();
+			info.onAdd = function (map) {
+				this._div = L.DomUtil.create('div', 'info');
+				this.update();
+				return this._div;
+			};
+			info.update = function (props) {
+				if (props) {
+					var postcode=props.post_4;
+					var str = '<h4>Twitter Fandom</h4> Postcode region: ' + postcode;
+					for (var team in teamsData) {
+						if (team=="random") continue;
+						str+="<br/>";
+						if (team==team1 || team==team2)	str+="<strong>"
+						str+=teamsData[team]["name"] + ": " + twitterData[postcode][team];
+						if (team==team1 || team==team2)	str+="</strong>"
+					}	
+						//teamsData[team1]["name"]+': '+ twitterData[postcode][team1] + '<br>'+
+						//teamsData[team2]["name"]+': '+ twitterData[postcode][team2];
+					this._div.innerHTML=str;
+				} else {
+					this._div.innerHTML = '<h4>Twitter Fandom</h4>Hover over a postcode region';
+				}
+			};
+			info.addTo(map);			
 			
 		
 		var hash=document.location.hash;
@@ -169,12 +196,12 @@ $(document).ready(function() {
 					layer.bringToFront();
 				}
 
-				//info.update(layer.feature.properties, layer.feature.twitter_data);
+				info.update(layer.feature.properties);
 			}
 		
 			function resetHighlight(e) {
 				geojson.resetStyle(e.target);
-				//info.update();
+				info.update();
 			}
 
 			function zoomToFeature(e) {
