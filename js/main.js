@@ -63,11 +63,11 @@ $(document).ready(function() {
 		var bounds = [[58.79,-8.3],[48.8,2.48]];
 		//var mbounds = [[70,-9],[30,5]];
 		var mapOpts={minZoom:5,maxZoom:9,zoomControl:false};
-		if ($.browser.mozilla==true) {
+		/*if ($.browser.mozilla==true) {
 			//mapOpts["fadeAnimation"]=false;
 			mapOpts["zoomAnimation"]=false;
 			//console.log("Firefox");
-		}
+		}*/
 		map = L.map('map',mapOpts).fitBounds(bounds);///.setView([54.6342, -5.2], 6);
 		/*L.tileLayer('http://{s}.tile.cloudmade.com/{key}/22677/256/{z}/{x}/{y}.png', {
 			key: 'BC9A493B41014CAABB98F0471D759707'
