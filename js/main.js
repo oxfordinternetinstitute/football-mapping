@@ -60,7 +60,7 @@ $(document).ready(function() {
 		 
 		 
 		//Build map
-		var bounds = [[58.79,-8.3],[48.8,2.48]];
+		var bounds = [[57.5,-8.3],[48.8,2.48]];
 		//var mbounds = [[70,-9],[30,5]];
 		var mapOpts={minZoom:5,maxZoom:9,zoomControl:false};
 		/*if ($.browser.mozilla==true) {
@@ -95,7 +95,7 @@ $(document).ready(function() {
 					for (var team in teamsData) {
 						//if (team=="random") continue;
 						str+="<br/>";
-						if (team==team1 || team==team2)	str+="<strong>"
+						if (team==team1 || team==team2)	str+="<strong style='color:#08C'>"
 						str+=teamsData[team]["name"] + ": " + twitterData[postcode][team];
 						if (team==team1 || team==team2)	str+="</strong>"
 					}	
@@ -132,7 +132,7 @@ $(document).ready(function() {
 	
 			L.geoJson(uk_map, {
 				style: function (feature) {
-			        return {color: "#000",fillColor:"none",weight:0.4};
+			        return {color: "#000",fillColor:"#cccccc",weight:0.5};
 			       }
 				//onEachFeature: onEachFeature
 			}).addTo(map);
@@ -281,9 +281,9 @@ $(document).ready(function() {
 				}
 
 				return {
-					weight: 0.4,
+					weight: 0.2,
 					opacity: 1,
-					color: polygoncolor,
+					color: '#666666',
 					fillOpacity: 1,
 					fillColor: polygoncolor,
 

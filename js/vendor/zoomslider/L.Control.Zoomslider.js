@@ -1,6 +1,6 @@
 L.Control.Zoomslider = L.Control.extend({
 	options: {
-		position: 'topleft',
+		position: 'bottomleft',
 		// height in px of zoom-slider.png
 		stepHeight: 9
 	},
