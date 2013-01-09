@@ -82,6 +82,8 @@ $(document).ready(function() {
 			//console.log("Firefox");
 		}*/
 		map = L.map('map',mapOpts).fitBounds(bounds);///.setView([54.6342, -5.2], 6);
+
+
 		/*L.tileLayer('http://{s}.tile.cloudmade.com/{key}/22677/256/{z}/{x}/{y}.png', {
 			key: 'BC9A493B41014CAABB98F0471D759707'
 			}).addTo(map);*/
@@ -93,7 +95,7 @@ $(document).ready(function() {
 				//style: style,
 				onEachFeature: onEachFeature
 			}).addTo(map);*/
-			
+
 			//L.marker([50.5, 30.5]).addTo(map);
 			
 			//Stadiums
@@ -101,10 +103,10 @@ $(document).ready(function() {
 				if (!teamsData[t]["stadium"]) continue;
 				var myIcon = L.icon({
 					iconUrl: 'img/markers/'+teamsData[t]["crest"],
-					//iconSize: [20, 20],
-					//iconAnchor: [22, 94]
+					iconSize: [30, 30],
+					iconAnchor: [15, 15]
 				});
-				var marker = L.marker(teamsData[t]["stadium"],{title:teamsData[t]["name"],icon:myIcon,"var":teamsData[t]["variable"]}).addTo(map).on('click',stadiumClick);
+				var marker = L.marker(teamsData[t]["stadium"],{title:teamsData[t]["name"],icon:myIcon,"var":teamsData[t]["variable"]}).addTo(map);
 				stadiums[t]=marker;
 			}
 			
@@ -213,12 +215,21 @@ $(document).ready(function() {
 			
 			$('#team1logo').attr("src", "img/crests/"+teamsData[team1]['crest']);
 			$('#team1name').text(teamsData[team1]['name']);
-			
+			var oms = new OverlappingMarkerSpiderfier(map); //overlapping marker layer
+
+			oms.addListener('click', function(marker) {
+				var hash = marker.options["var"];
+				document.location.hash=hash;
+				showData("#"+hash);
+			});
+
 			for (var t in stadiums) {
 				if (t==team1||t==team2) {
 					map.addLayer(stadiums[t]);
+					oms.addMarker(stadiums[t]);
 				} else {
 					map.removeLayer(stadiums[t]);
+
 				}
 			}
 		
