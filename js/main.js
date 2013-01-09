@@ -256,13 +256,21 @@ $(document).ready(function() {
 			//<span class="colorblock"></span>
 			var colorblocks = $("#colorblocks");
 			colorblocks.html("");
-			
-			
-			for (var i=0; i<colorInfo.colors.length; i++) {
-				$("<span/>").addClass("colorblock").css("background-color",
-					//normBlend(color1,color2,i)
-					colorInfo.colors[i]
-					).appendTo(colorblocks);
+		
+			if (team2=="random") {
+				for (var i=colorInfo.colors.length-1; i>=0; i--) {
+					$("<span/>").addClass("colorblock").css("background-color",
+						//normBlend(color1,color2,i)
+						colorInfo.colors[i]
+						).appendTo(colorblocks);
+				}
+			} else {
+				for (var i=0; i<colorInfo.colors.length; i++) {
+					$("<span/>").addClass("colorblock").css("background-color",
+						//normBlend(color1,color2,i)
+						colorInfo.colors[i]
+						).appendTo(colorblocks);
+				}
 			}
 			//console.log(colorblocks);
 		
