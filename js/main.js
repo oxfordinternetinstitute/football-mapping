@@ -22,6 +22,7 @@ var colorInfo={
 	cutpoints:[],
 	colors:[]
 };
+var stadiums={};
 
 $(document).ready(function() {
 
@@ -95,6 +96,7 @@ $(document).ready(function() {
 			
 			//L.marker([50.5, 30.5]).addTo(map);
 			
+			//Stadiums
 			for (var t in teamsData) {
 				if (!teamsData[t]["stadium"]) continue;
 				var myIcon = L.icon({
@@ -102,7 +104,8 @@ $(document).ready(function() {
 					//iconSize: [20, 20],
 					//iconAnchor: [22, 94]
 				});
-				L.marker(teamsData[t]["stadium"],{title:teamsData[t]["name"],icon:myIcon,"var":teamsData[t]["variable"]}).addTo(map).on('click',stadiumClick);
+				var marker = L.marker(teamsData[t]["stadium"],{title:teamsData[t]["name"],icon:myIcon,"var":teamsData[t]["variable"]}).addTo(map).on('click',stadiumClick);
+				stadiums[t]=marker;
 			}
 			
 			function stadiumClick(event) {
@@ -210,6 +213,14 @@ $(document).ready(function() {
 			
 			$('#team1logo').attr("src", "img/crests/"+teamsData[team1]['crest']);
 			$('#team1name').text(teamsData[team1]['name']);
+			
+			for (var t in stadiums) {
+				if (t==team1||t==team2) {
+					map.addLayer(stadiums[t]);
+				} else {
+					map.removeLayer(stadiums[t]);
+				}
+			}
 		
 		}
 		 
