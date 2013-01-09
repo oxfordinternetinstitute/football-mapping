@@ -8,7 +8,7 @@ var rivalries=[
 				}],
         "rivalry_info": "The Manchester derby.",
 		"centre_map": [54.2323,-01,2345],
-		"name":"ManU vs. Man City"
+		"name":"Man Utd vs. Man City"
     },
     {
         "teams": [{
@@ -63,6 +63,6 @@ var rivalries=[
 				}],
         "rivalry_info": "No name.",
 		"centre_map": [54.2323,-01,2345],
-		"name":"Aston vs. West Bromwich"
+		"name":"Aston Villa vs. West Brom"
     }
 ];
