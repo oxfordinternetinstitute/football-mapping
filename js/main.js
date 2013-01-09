@@ -17,6 +17,7 @@ jQuery.getJSON("data/uk_post_districs.json",function(data) {
 var current_rivalry = 0; // this is what we will change with our drop down select box
 var team1,team2;
 var colorMin,colorMax,geojson,map,info;
+var color1,color2;
 
 $(document).ready(function() {
 
@@ -165,6 +166,9 @@ $(document).ready(function() {
 				team1 = rivalries[current_rivalry]['teams'][0]['variable'];
 				team2 = rivalries[current_rivalry]['teams'][1]['variable'];
 				
+				color1=teamsData[team1]['color'];
+				color2=teamsData[team2]['color'];
+				
 				$('#team2logo').show();
 				$('#team2name').show();
 				$(".vs").show();
@@ -178,7 +182,9 @@ $(document).ready(function() {
 				team2 = "random";
 				
 				//set random color to lighter shade of team1 color
-				teamsData[team2]['color']=getLightShade(teamsData[team1]['color']);
+				//teamsData[team2]['color']=getLightShade(teamsData[team1]['color']);
+				color1=getDarkShade(teamsData[team1]['color']);
+				color2=getLightShade(teamsData[team1]['color']);
 				
 				$('#team2logo').hide();
 				$('#team2name').hide();
@@ -229,7 +235,7 @@ $(document).ready(function() {
 			
 			for (var i=1; i>=0; i-=.25) {
 				$("<span/>").addClass("colorblock").css("background-color",
-					normBlend(teamsData[team1]['color'],teamsData[team2]['color'],i)
+					normBlend(color1,color2,i)
 					).appendTo(colorblocks);
 			}
 			//console.log(colorblocks);
@@ -296,7 +302,7 @@ $(document).ready(function() {
 				} else {
 					var col = value1/(value1+value2);
 					col = (col-colorMin)*(1/(colorMax-colorMin));
-					polygoncolor = normBlend(teamsData[team1]['color'],teamsData[team2]['color'],col);
+					polygoncolor = normBlend(color1,color2,col);
 				}
 
 				return {

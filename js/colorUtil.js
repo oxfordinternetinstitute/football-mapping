@@ -68,3 +68,11 @@ function getLightShade(color) {
 	var tmp = tinycolor(hsl).toRgb();
 	return rgbToHex(tmp.r,tmp.g,tmp.b);
 }
+
+function getDarkShade(color) {
+	var c = tinycolor(color);
+	var hsl = c.toHsl();	
+	hsl.l=0.2;
+	var tmp = tinycolor(hsl).toRgb();
+	return rgbToHex(tmp.r,tmp.g,tmp.b);
+}
