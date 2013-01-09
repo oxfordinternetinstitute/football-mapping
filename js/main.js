@@ -81,6 +81,24 @@ $(document).ready(function() {
 				onEachFeature: onEachFeature
 			}).addTo(map);*/
 			
+			//L.marker([50.5, 30.5]).addTo(map);
+			
+			for (var t in teamsData) {
+				if (!teamsData[t]["stadium"]) continue;
+				var myIcon = L.icon({
+					iconUrl: 'img/markers/'+teamsData[t]["crest"],
+					iconSize: [15, 15],
+					//iconAnchor: [22, 94]
+				});
+				L.marker(teamsData[t]["stadium"],{title:teamsData[t]["name"],icon:myIcon,"var":teamsData[t]["variable"]}).addTo(map).on('click',stadiumClick);
+			}
+			
+			function stadiumClick(event) {
+				var hash = event.target.options["var"];
+				document.location.hash=hash;
+				showData("#"+hash);
+			}
+			
 			//Hover
 			info = L.control();
 			info.onAdd = function (map) {
@@ -149,7 +167,11 @@ $(document).ready(function() {
 				
 				$('#team2logo').show();
 				$('#team2name').show();
-				$("#vs").show();
+				$(".vs").show();
+				
+				$('#team2logo').attr("src", "img/crests/"+teamsData[team2]['crest']);		
+				$('#team2name').text(teamsData[team2]['name']);
+
 
 			} else {
 				team1 = teamsData[what.substr(1)]['variable'];
@@ -160,15 +182,12 @@ $(document).ready(function() {
 				
 				$('#team2logo').hide();
 				$('#team2name').hide();
-				$("#vs").hide();
+				$(".vs").hide();
 			}
 			
-			// this will be refactored into some sort of changeRivalry() function
-			$('#team1logo').attr("src", teamsData[team1]['crest']);
+			$('#team1logo').attr("src", "img/crests/"+teamsData[team1]['crest']);
 			$('#team1name').text(teamsData[team1]['name']);
 		
-			$('#team2logo').attr("src", teamsData[team2]['crest']);		
-			$('#team2name').text(teamsData[team2]['name']);
 		}
 		 
 			
