@@ -59,7 +59,7 @@ $(document).ready(function() {
 
 		 $("a.dataLink").click(function() {
 			//console.log(event.srcElement.hash);
-		 	$("#controlwrapper").animate({marginBottom: "-440px"}, 400);//Hide bottom panel
+		 	$("#controlwrapper").animate({marginBottom: "-340px"}, 400);//Hide bottom panel
 		 	showData($(this).attr("href"));
 		 });		 
 		 
@@ -179,7 +179,7 @@ $(document).ready(function() {
 				
 				$('#team2logo').show();
 				$('#team2name').show();
-				$(".vs").show();
+				//$(".vs").show();
 				
 				$('#team2logo').attr("src", "img/crests/"+teamsData[team2]['crest']);		
 				$('#team2name').text(teamsData[team2]['name']);
@@ -196,7 +196,7 @@ $(document).ready(function() {
 				
 				$('#team2logo').hide();
 				$('#team2name').hide();
-				$(".vs").hide();
+				//$(".vs").hide();
 			}
 			
 			$('#team1logo').attr("src", "img/crests/"+teamsData[team1]['crest']);
@@ -241,9 +241,9 @@ $(document).ready(function() {
 			//Colors
 			colorInfo.colors=[];
 			colorInfo.colors.push(color1);
-			colorInfo.colors.push(normBlend(color1,color2,.33));
-			//colorInfo.colors.push(normBlend(color1,color2,.5));
 			colorInfo.colors.push(normBlend(color1,color2,.67));
+			//colorInfo.colors.push(normBlend(color1,color2,.5));
+			colorInfo.colors.push(normBlend(color1,color2,.33));
 			colorInfo.colors.push(color2);
 			
 			//console.log(colorDist.join(','));
@@ -258,9 +258,10 @@ $(document).ready(function() {
 			colorblocks.html("");
 			
 			
-			for (var i=1; i>=0; i-=.33) {
+			for (var i=0; i<colorInfo.colors.length; i++) {
 				$("<span/>").addClass("colorblock").css("background-color",
-					normBlend(color1,color2,i)
+					//normBlend(color1,color2,i)
+					colorInfo.colors[i]
 					).appendTo(colorblocks);
 			}
 			//console.log(colorblocks);
