@@ -74,7 +74,7 @@ $(document).ready(function() {
 		//Build map
 		var bounds = [[57.5,-8.3],[48.8,2.48]];
 		//var mbounds = [[70,-9],[30,5]];
-		var mapOpts={minZoom:5,maxZoom:9,zoomControl:false,attributionControl:false};//We have attribution under More Info
+		var mapOpts={minZoom:5,maxZoom:11,zoomControl:false,attributionControl:false};//We have attribution under More Info
 		/*if ($.browser.mozilla==true) {
 			//mapOpts["fadeAnimation"]=false;
 			mapOpts["zoomAnimation"]=false;
