@@ -10,7 +10,7 @@ var teamsData={
         "variable": "arsenal"
     }, 
     "astonvilla": {
-        "color": "#6E2233", 
+        "color": "#700019", 
         "crest": "Aston_Villa.png", 
         "name": "Aston Villa", 
         "stadium": [
@@ -60,7 +60,7 @@ var teamsData={
         "variable": "liverpool"
     }, 
     "manchestercity": {
-        "color": "#8CBED6", 
+        "color": "#1D8CC2", 
         "crest": "Manchester_City.png", 
         "name": "Manchester City", 
         "stadium": [
@@ -90,7 +90,7 @@ var teamsData={
         "variable": "newcastleunited"
     }, 
     "norwichcity": {
-        "color": "#29503b", 
+        "color": "#E9F000", 
         "crest": "Norwich_City.png", 
         "name": "Norwitch City", 
         "stadium": [
@@ -186,7 +186,7 @@ var teamsData={
         "variable": "westbromwichalbion"
     }, 
     "westhamunited": {
-        "color": "#6E2233", 
+        "color": "#700019", 
         "crest": "West_Ham_United_FC.png", 
         "name": "West Ham United", 
         "stadium": [
