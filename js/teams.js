@@ -86,35 +86,35 @@ var teamsData={
 			"norwichcity" : {
 					"name": "Norwitch City",
 					"crest":"Norwich_City.png",
-					"color":"#888888",
+					"color":"#29503b",
 					"variable":"norwichcity",
 					"stadium":[52.622128, 1.308653]
 				},
 			"queensparkrangers":{
 					"name": "Queens Park Rangers",
 					"crest": "QPR.png",
-					"color": "#888888",
+					"color": "#001F80",
 					"variable": "queensparkrangers",
 					"stadium":[51.509167, -0.232222]
 				},
 			"reading":{
 					"name": "Reading",
 					"crest": "Reading_FC.png",
-					"color": "#888888",
+					"color": "#001F80",
 					"variable": "reading",
 					"stadium":[51.422222, -0.982778]
 				},
 			"southampton":{
 					"name": "Southampton",
 					"crest": "Southampton.png",
-					"color": "#888888",
+					"color": "#ff0000",
 					"variable": "southampton",
 					"stadium":[50.905833, -1.391111]
 				},
 			"stokecity":{
 					"name": "Stoke City",
 					"crest": "Stoke_City_FC.png",
-					"color": "#888888",
+					"color": "#ff0000",
 					"variable": "stokecity",
 					"stadium":[52.988333, -2.175556]
 				},
@@ -128,14 +128,14 @@ var teamsData={
 			"westhamunited":{
 					"name": "West Ham United",
 					"crest": "West_Ham_United_FC.png",
-					"color": "#888888",
+					"color": "#6E2233",
 					"variable": "westhamunited",
 					"stadium":[51.531944, 0.039444]
 				},
 			"wiganathletic":{
 					"name": "Wigan Athletic",
 					"crest": "Wigan_Athletic.png",
-					"color": "#888888",
+					"color": "#0000ff",
 					"variable": "wiganathletic",
 					"stadium":[53.547778, -2.653889]
 				},
