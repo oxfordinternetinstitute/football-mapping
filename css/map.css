@@ -56,10 +56,10 @@
 		}
 		
 		.overlay {
-			background: rgba(0,0,0,0.8);
--webkit-box-shadow: 0px -3px 25px rgba(50, 50, 50, 1);
--moz-box-shadow:    0px -3px 25px rgba(50, 50, 50, 1);
-box-shadow:         0px -3px 25px rgba(50, 50, 50, 1);
+			background: rgba(0,0,0,0.9);
+-webkit-box-shadow: 0px -3px 35px rgba(50, 50, 50, 1);
+-moz-box-shadow:    0px -3px 35px rgba(50, 50, 50, 1);
+box-shadow:         0px -3px 35px rgba(50, 50, 50, 1);
 		}
 		
 		.title {
@@ -150,7 +150,7 @@ box-shadow:         0px -3px 25px rgba(50, 50, 50, 1);
 }
 
 .menuheader {
-	width:350px;
+	width:300px;
 	text-align:center;
 	margin:0 auto;
 	height:70px;
@@ -173,7 +173,7 @@ box-shadow:         0px -3px 25px rgba(50, 50, 50, 1);
 .teamlogo {
 	height:75px;
 	width:75px;
-	padding-bottom:10px;
+	padding-bottom:5px;
 }
 
 .vs {
