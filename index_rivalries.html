@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.css" />
+        <link rel="stylesheet" href="js/vendor/jquery.fancybox.css">		
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 		<script src="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.js"></script>
 		<!--[if lte IE 8]>
@@ -75,12 +76,23 @@
 			margin-right: 8px;
 			opacity: 0.7;
 		}
+		
+		#maplegend {
+			position: absolute;
+			left: 25px;
+			top: 40%;
+			padding: 10px;
+			color: white;
+			width: 250px;
+		}
+		
 		.overlay {
 			background: rgba(0,0,0,0.8);
 			-webkit-box-shadow: 0px -3px 17px rgba(50, 50, 50, 0.72);
 			-moz-box-shadow:    0px -3px 17px rgba(50, 50, 50, 0.72);
 			box-shadow:         0px -3px 17px rgba(50, 50, 50, 0.72);
 		}
+		
 		.title {
 			top:10px;
 			right:10px;
@@ -113,8 +125,10 @@
 			background-color:rgba(255,255,255,1);
 			padding:20px;
 		}
-	
 		
+		#moreinfo {
+			display: none;
+		}
 		
 	    .controlButton {
 
@@ -172,8 +186,9 @@
     <body>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+   		<script src="js/vendor/jquery.fancybox.pack.js" type="text/javascript" language="javascript"></script>
         <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>	
+        <script src="js/main.js"></script>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -182,7 +197,9 @@
 
 		<div id="map"></div>
 		<div id="controlwrapper">
-			<div style="position:relative;left:450px;top:60px;"><a href="#" class="controlButton" id="controlButton">Select a Rivalry or Team</a></div>
+			<div style="position:relative;left:450px;top:60px;">
+				<a href="javascript:void(0);" class="controlButton" id="controlButton">Select a Rivalry or Team</a>
+			</div>
 			<div class="overlay header">
 				<div style="width:350px;text-align:center;margin:0 auto;height:85px;padding-top:15px;color:white">
 					<div id="team1" style="float:left;">
@@ -213,6 +230,30 @@
 				</div>
 				
 			</div>
+		</div>
+		
+		<div id="maplegend" class="overlay">
+			<h4>Premiership team support on Twitter</h4>
+			<p>Geocoded tweets aggregated to the postcode area from X to Y.</p>
+			<div style="text-align:center;">
+				<a href="#moreinfo" class="controlButton fancybox" id="infolink">More information</a>
+			</div>
+		</div>
+		
+		<div id="moreinfo">
+			<p>
+			This map was created by
+			<a href="http://www.scotthalen.net/">Scott A. Hale, Oxford Internet Institute, University of Oxford</a>,
+			<a href="http://www.oii.ox.ac.uk/people/?id=273">Joshua Melville, Oxford Internet Institute, University of Oxford</a>,
+			<a href="http://www.floatingsheep.org/p/ate-poorthuis.html">Ate Poorthuis, Department of Geography, University of Kentucky</a>,
+			<a href="http://www.geospace.co.uk/">Mark Graham, Oxford Internet Institute, University of Oxford</a>,
+			<a href="http://www.zooknic.com/">Matthew Zook, Department of Geography University of Kentucky</a>,
+			<a href="https://sites.google.com/a/email.arizona.edu/stephens/">Monica Stephens, Department of Geography, Humboldt State University</a>, 
+			and 
+			<a href="http://www.floatingsheep.org/p/taylor-shelton.html">Taylor Shelton, Graduate School of Geography, Clark University</a>. 
+			All geocoded tweets mentioning premiership teams were collected between [x and y]. For more information about this work,
+			visit floatingsheep.org
+			</p>	
 		</div>
 
     </body>

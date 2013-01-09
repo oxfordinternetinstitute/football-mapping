@@ -93,17 +93,25 @@ $(document).ready(function() {
 				}
 			};
 			info.addTo(map);			
-			
+					
+		$('#controlButton').click(function () {
+			var margin = $("#controlwrapper").css("marginBottom").replace("px","");
+			$("#controlwrapper").animate({marginBottom: (margin==0)?-440:0}, 400);
+		});
+		
+	    $("a.fancybox").fancybox({
+		    minWidth: 400,
+		    maxWidth: 800,
+		    maxHeight: 600
+		});
 		
 		var hash=document.location.hash;
 		if (hash=="" || hash=="#") {
 			hash="#riv0";
 		}
 		prepareGUI(hash);
-		
-		$('#controlButton').click(function () {
-			 $("#controlwrapper").animate({marginBottom: 0}, 400);
-		});
+
+
 });
 
 

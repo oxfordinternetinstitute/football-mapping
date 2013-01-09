@@ -56,7 +56,7 @@ var teamsData={
 			"fulham":{
 					"name": "Fulham",	
 					"crest": "img/crests/Fulham_FC.png",
-					"color": "#ffffff",
+					"color": "#cc0000",
 					"variable": "fulham"
 				},
     		"astonvilla":{
