@@ -42,27 +42,5 @@ var rivalries=[
         "rivalry_info": "The Tyne-Wear derby.",
 		"centre_map": [54.2323,-01,2345],
 		"name":"Newcastle vs. Sunderland"
-    },
-    {
-        "teams": [{
-					"variable": "chelsea"
-				},
-				{
-					"variable": "fulham"
-				}],
-        "rivalry_info": "The West London derby.",
-		"centre_map": [54.2323,-01,2345],
-		"name":"Chelsea vs. Fulham"
-    },
-    {
-        "teams": [{
-					"variable": "astonvilla"
-				},
-				{
-					"variable": "westbromwichalbion"
-				}],
-        "rivalry_info": "No name.",
-		"centre_map": [54.2323,-01,2345],
-		"name":"Aston Villa vs. West Brom"
-    }
+    }   
 ];
