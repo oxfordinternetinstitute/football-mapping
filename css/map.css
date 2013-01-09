@@ -51,9 +51,7 @@
 		#maplegend {
 			position: absolute;
 			left: 25px;
-			top: 40%;
-			padding: 10px;
-			color: white;
+			top: 80px;
 			width: 250px;
 		}
 		
@@ -114,7 +112,7 @@
 
 		}
 		.light { color:#FFFFFF; text-shadow:0px -1px 0px rgba(0,0,0,0.9); }
-		.dark { color:#000000; text-shadow:0px 1px 0px rgba(255,255,255,0.1); }
+		.dark { color:#555555; text-shadow:0px 1px 0px rgba(255,255,255,0.1); }
 		.lightAgain { color:#FFFFFF; position:relative; }
 		.lightAgain:before {
 		    content: attr(title);
@@ -134,4 +132,19 @@
 		    padding:50px;
 		}
 
-		
+		.btn-custom {
+  background-color: hsl(287, 0%, 77%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f7f7f7", endColorstr="#c4c4c4");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#f7f7f7), to(#c4c4c4));
+  background-image: -moz-linear-gradient(top, #f7f7f7, #c4c4c4);
+  background-image: -ms-linear-gradient(top, #f7f7f7, #c4c4c4);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(100%, #c4c4c4));
+  background-image: -webkit-linear-gradient(top, #f7f7f7, #c4c4c4);
+  background-image: -o-linear-gradient(top, #f7f7f7, #c4c4c4);
+  background-image: linear-gradient(#f7f7f7, #c4c4c4);
+  border-color: #c4c4c4 #c4c4c4 hsl(287, 0%, 72%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+  -webkit-font-smoothing: antialiased;
+}
