@@ -1,7 +1,12 @@
 "use strict";
 
-var uk_post_districts;
-//show layer with loading animation
+var uk_post_districts,uk_map;
+
+jQuery.getJSON("data/uk.json",function(data) {
+	uk_map=data;
+	addMap();
+});
+
 jQuery.getJSON("data/uk_post_districs.json",function(data) {
 	$("#loading").hide();
 	uk_post_districts=data;
@@ -58,7 +63,6 @@ $(document).ready(function() {
 		var bounds = [[58.79,-8.3],[48.8,2.48]];
 		//var mbounds = [[70,-9],[30,5]];
 		var mapOpts={minZoom:5,maxZoom:9,zoomControl:false};
-		console.log($.browser);
 		if ($.browser.mozilla==true) {
 			//mapOpts["fadeAnimation"]=false;
 			mapOpts["zoomAnimation"]=false;
@@ -68,7 +72,7 @@ $(document).ready(function() {
 		/*L.tileLayer('http://{s}.tile.cloudmade.com/{key}/22677/256/{z}/{x}/{y}.png', {
 			key: 'BC9A493B41014CAABB98F0471D759707'
 			}).addTo(map);*/
-		L.tileLayer("http://{s}.tiles.mapbox.com/v3/mapbox.mapbox-warden/{z}/{x}/{y}.png").addTo(map);
+		//L.tileLayer("http://{s}.tiles.mapbox.com/v3/mapbox.mapbox-warden/{z}/{x}/{y}.png").addTo(map);
 		//L.tileLayer("http://{s}.tiles.mapbox.com/v3/mapbox.mapbox-light/{z}/{x}/{y}.png").addTo(map);
 		//map.addControl(new L.Control.Zoomslider());
 		 
@@ -124,7 +128,16 @@ $(document).ready(function() {
 
 });
 
-
+	function addMap() {
+	
+			L.geoJson(uk_map, {
+				style: function (feature) {
+			        return {color: "#000",fillColor:"none",weight:0.4};
+			       }
+				//onEachFeature: onEachFeature
+			}).addTo(map);
+	}
+		
 
 
 		function prepareGUI(what) {
@@ -268,9 +281,9 @@ $(document).ready(function() {
 				}
 
 				return {
-					weight: 0.5,
+					weight: 0.4,
 					opacity: 1,
-					color: 'none',
+					color: polygoncolor,
 					fillOpacity: 0.8,
 					fillColor: polygoncolor,
 
