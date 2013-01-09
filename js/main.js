@@ -53,8 +53,11 @@ $(document).ready(function() {
 		 	showData($(this).attr("href"));
 		 });		 
 		 
+		 
 		//Build map
-		map = L.map('map').setView([54.6342, -5.2], 6);
+		var bounds = [[58.79,-8.3],[48.8,2.48]];
+		//var mbounds = [[70,-9],[30,5]];
+		map = L.map('map').fitBounds(bounds);///.setView([54.6342, -5.2], 6);
 		L.tileLayer('http://{s}.tile.cloudmade.com/{key}/22677/256/{z}/{x}/{y}.png', {
 			key: 'BC9A493B41014CAABB98F0471D759707'
 			}).addTo(map);
@@ -210,7 +213,7 @@ $(document).ready(function() {
 				return {
 					weight: 0.5,
 					opacity: 1,
-					color: '#ffffff',
+					color: 'none',
 					fillOpacity: 0.8,
 					fillColor: polygoncolor,
 
