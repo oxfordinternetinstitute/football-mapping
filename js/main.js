@@ -110,17 +110,21 @@ $(document).ready(function() {
 			info.update = function (props) {
 				if (props) {
 					var postcode=props.post_4;
-					var str = '<h5>Twitter Fandom</h5> Postcode region: ' + postcode;
+					var str = '<h5>Twitter Fandom</h5> Postcode region: ' + postcode+"<br /><ul>";
 					for (var team in teamsData) {
 						//if (team=="random") continue;
-						str+="<br/>";
+						str+="<li>";
 						if (team==team1 || team==team2)	str+="<strong style='color:#08C'>"
 						str+=teamsData[team]["name"] + ": " + twitterData[postcode][team];
 						if (team==team1 || team==team2)	str+="</strong>"
+						str+="</li>";
+				
 					}	
 						//teamsData[team1]["name"]+': '+ twitterData[postcode][team1] + '<br>'+
 						//teamsData[team2]["name"]+': '+ twitterData[postcode][team2];
+					str+="</ul>";
 					this._div.innerHTML="<small>"+str+"</small>";
+
 				} else {
 					this._div.innerHTML = '<h5>Twitter Fandom</h5><small>Hover over a postcode region.</small>';
 				}
@@ -129,7 +133,7 @@ $(document).ready(function() {
 					
 		$('#controlButton').click(function () {
 			var margin = $("#controlwrapper").css("marginBottom").replace("px","");
-			$("#controlwrapper").animate({marginBottom: (margin==0)?-440:0}, 400);
+			$("#controlwrapper").animate({marginBottom: (margin==0)?-340:0}, 400);
 		});
 		
 	    $("a.fancybox").fancybox({
