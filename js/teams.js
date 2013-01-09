@@ -83,6 +83,62 @@ var teamsData={
 					"variable": "westbromwichalbion",
 					"stadium":[52.509167, -1.963889]
 				},
+			"norwichcity" : {
+					"name": "Norwitch City",
+					"crest":"Norwich_City.png",
+					"color":"#888888",
+					"variable":"norwichcity",
+					"stadium":[52.622128, 1.308653]
+				},
+			"queensparkrangers":{
+					"name": "Queens Park Rangers",
+					"crest": "QPR.png",
+					"color": "#888888",
+					"variable": "queensparkrangers",
+					"stadium":[51.509167, -0.232222]
+				},
+			"reading":{
+					"name": "Reading",
+					"crest": "Reading_FC.png",
+					"color": "#888888",
+					"variable": "reading",
+					"stadium":[51.422222, -0.982778]
+				},
+			"southampton":{
+					"name": "Southampton",
+					"crest": "Southampton.png",
+					"color": "#888888",
+					"variable": "southampton",
+					"stadium":[50.905833, -1.391111]
+				},
+			"stokecity":{
+					"name": "Stoke City",
+					"crest": "Stoke_City_FC.png",
+					"color": "#888888",
+					"variable": "stokecity",
+					"stadium":[52.988333, -2.175556]
+				},
+			"swanseacity":{
+					"name": "Swansea City",
+					"crest": "Swansea_City_AFC.png",
+					"color": "#000000",
+					"variable": "swanseacity",
+					"stadium":[51.6422, -3.9351]
+				},
+			"westhamunited":{
+					"name": "West Ham United",
+					"crest": "West_Ham_United_FC.png",
+					"color": "#888888",
+					"variable": "westhamunited",
+					"stadium":[51.531944, 0.039444]
+				},
+			"wiganathletic":{
+					"name": "Wigan Athletic",
+					"crest": "Wigan_Athletic.png",
+					"color": "#888888",
+					"variable": "wiganathletic",
+					"stadium":[53.547778, -2.653889]
+				},
 			"random":{
 					"name":"Random Sample",
 					"crest":"",
