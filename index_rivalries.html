@@ -130,6 +130,14 @@
 			display: none;
 		}
 		
+		.colorblock {
+			width: 30px;
+			height: 30px;
+			display: inline-block;
+			margin: 0 0 0 0;
+			padding: 0 0 0 0;
+		}
+		
 	    .controlButton {
 
 	        -moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
@@ -201,7 +209,7 @@
 				<a href="javascript:void(0);" class="controlButton" id="controlButton">Select a Rivalry or Team</a>
 			</div>
 			<div class="overlay header">
-				<div style="width:350px;text-align:center;margin:0 auto;height:85px;padding-top:15px;color:white">
+				<div style="width:350px;text-align:center;margin:0 auto;height:100px;padding-top:15px;color:white">
 					<div id="team1" style="float:left;">
 						<image id="team1logo" src="" style="width:50px;height:50px" />
 						<br/><span id="team1name"></span>
@@ -211,20 +219,19 @@
 						<image id="team2logo" src="" style="width:50px;height:50px" />
 						<br/><span id="team2name"></span>
 					</div>				
-					<div id="vs" style="height:200px;line-height:60px;font-size:38px">V</div>
-					
+					<div id="vs" style="height:50px;line-height:60px;font-size:38px">V</div>
+					<div id="colorblocks" style="width:150; height:30px;text-align:center;clear:both;">
+					</div>
 				</div>
 			</div>
 			<div id="controls">
 				<div style="width:600px;margin:0 auto">
 					<div style="float:left;width:300px;">
 						<h1>Rivalries</h1>
-						<p>Some blurb goes here but the meantime I will just write nonsense.</p>
 						<ul id="rivalryList" class="datalist"></ul>
 					</div>
 					<div style="float:right;width:300px;">
 						<h1>Teams</h1>
-						<p>Some blurb goes here but the meantime I will just write nonsense.</p>
 						<ul id="teamList" class="datalist"></ul>
 					</div>					
 				</div>

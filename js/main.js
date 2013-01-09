@@ -178,7 +178,19 @@ $(document).ready(function() {
 			colorMax=colorDist[colorDist.length-1];
 			//console.log(colorMin);
 			//console.log(colorMax);
-		
+			
+			//Add colors to legend
+			//<span class="colorblock"></span>
+			var colorblocks = $("#colorblocks");
+			colorblocks.html("");
+			
+			
+			for (var i=1; i>=0; i-=.25) {
+				$("<span/>").addClass("colorblock").css("background-color",
+					normBlend(teamsData[team1]['color'],teamsData[team2]['color'],i)
+					).appendTo(colorblocks);
+			}
+			console.log(colorblocks);
 		
 		
 			if (geojson) {
