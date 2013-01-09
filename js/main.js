@@ -88,7 +88,7 @@ $(document).ready(function() {
 				if (!teamsData[t]["stadium"]) continue;
 				var myIcon = L.icon({
 					iconUrl: 'img/markers/'+teamsData[t]["crest"],
-					iconSize: [15, 15],
+					//iconSize: [20, 20],
 					//iconAnchor: [22, 94]
 				});
 				L.marker(teamsData[t]["stadium"],{title:teamsData[t]["name"],icon:myIcon,"var":teamsData[t]["variable"]}).addTo(map).on('click',stadiumClick);
