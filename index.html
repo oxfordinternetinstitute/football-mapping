@@ -24,7 +24,15 @@
 		<link rel="stylesheet" href="css/map.css">		
     </head>
     <body>
-    		<div style="position:absolute; height:100%; width: 100%; left:0px; top:0px; background-image:url('img/ajax-loader.gif'); background-repeat:no-repeat; background-position:center; background-color: #000; z-index:4000;" id="loading"></div>
+    		<div style="position:absolute; height:100%; width: 100%; left:0px; top:0px;background-color: #000; z-index:4000" id="loading">
+
+
+    			<div style="margin:0 auto;width:450px;position:relative;top:200px;text-align:center;line-height:13px;color:#eee">
+    				<h3 style="margin-bottom:30px">Loading Premier League Tweet Map</h3>
+    				<img src="img/ajax-loader.gif" alt="Loading" style="margin-bottom:30px">
+    				<div><small>Tested in the latest versions of Chome, Firefox, Opera, and IE. A modern HTML5 and CSS3 compliant browser is suggested. Best performance in Google Chrome.</small></div>    				
+    			</div>
+    		</div>
 
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -56,6 +64,7 @@
 
 			<div class="overlay header">
 				<div id="colorblocks"></div>
+				<div id="colortext"><small>Greater &#8594; Fewer</small></div>
 				<div class="menuheader">
 					<div class="team1" id="team1">
 						<image id="team1logo" class="teamlogo" src=""/>

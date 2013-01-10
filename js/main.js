@@ -147,7 +147,7 @@ $(document).ready(function() {
 					//console.log(sorted[0][0]+" with "+sorted[0][1]);
 
 
-					var str = '<h5>Twitter Fandom</h5><p>For postcode district: ' + postcode+"</p><table><tr><th>Team</th><th style='text-align:center'>Per 1000 Geotagged Tweets</th></tr>";
+					var str = '<h5>Twitter Fandom</h5><p>For postcode district: ' + postcode+"</p><table><tr><th>Team</th><th style='text-align:center'>Tweets Per 1,000</th></tr>";
 					for (var key in sorted) {
 						team = sorted[key][0];
 						if (team=="random") continue;
@@ -322,14 +322,19 @@ $(document).ready(function() {
 						//normBlend(color1,color2,i)
 						colorInfo.colors[i]
 						).appendTo(colorblocks);
+						
 				}
+
+				$('#colortext').hide();
 			} else {
 				for (var i=colorInfo.colors.length-1; i>=0; i--) {
 					$("<span/>").addClass("colorblock").css("background-color",
 						//normBlend(color1,color2,i)
 						colorInfo.colors[i]
 						).appendTo(colorblocks);
+						
 				}
+				$('#colortext').show();
 			}
 			//console.log(colorblocks);
 		
