@@ -147,7 +147,7 @@ $(document).ready(function() {
 					//console.log(sorted[0][0]+" with "+sorted[0][1]);
 
 
-					var str = '<h5>Twitter Fandom</h5><p>For postcode district: ' + postcode+"</p><table><tr><th>Team</th><th style='text-align:center'>Tweets Per 1,000</th></tr>";
+					var str = '<h5>Twitter Fandom</h5><p>For postcode district: ' + postcode+"</p><table><tr><th>Team</th><th style='text-align:center'>Fans/1,000 Twitter Users</th></tr>";
 					for (var key in sorted) {
 						team = sorted[key][0];
 						if (team=="random") continue;
