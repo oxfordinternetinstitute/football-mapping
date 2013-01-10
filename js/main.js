@@ -136,10 +136,7 @@ $(document).ready(function() {
 					for (var team in teamsData) {
 						if (team=="random") continue;
 						
-						var stat = ""+(Math.round(1000*twitterData[postcode][team]/rand)/100);
-						if (stat.indexOf(".")==-1) stat+=".00";
-						else if (stat.indexOf(".")==stat.length) stat+="0";
-						
+						var stat = Math.round(1000*twitterData[postcode][team]/rand);						
 						sorted.push([team, stat]);
 					}
 
@@ -155,13 +152,13 @@ $(document).ready(function() {
 						team = sorted[key][0];
 						if (team=="random") continue;
 						
-						var stat = ""+(Math.round(1000*twitterData[postcode][team]/rand)/100);
+						var stat = ""+sorted[key][1];
 						if (stat.indexOf(".")==-1) stat+=".00";
 						else if (stat.indexOf(".")==stat.length-2) stat+="0";
 						
 						str+="<tr><td>";
 						if (team==team1 || team==team2)	str+="<strong style='color:#08C'>"
-						str+=teamsData[team]["name"] + "</td><td style='text-align:center'>" + stat;
+						str+=teamsData[team]["name"] + "</td><td style='text-align:right'>" + stat;
 						if (team==team1 || team==team2)	str+="</strong>"
 						str+="</td></tr>";
 				
