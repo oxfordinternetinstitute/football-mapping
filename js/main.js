@@ -152,7 +152,7 @@ $(document).ready(function() {
 						team = sorted[key][0];
 						if (team=="random") continue;
 						
-						var stat = ""+sorted[key][1];
+						var stat = ""+(sorted[key][1]/100);
 						if (stat.indexOf(".")==-1) stat+=".00";
 						else if (stat.indexOf(".")==stat.length-2) stat+="0";
 						
