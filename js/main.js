@@ -151,38 +151,39 @@ $(document).ready(function() {
 
 					var rank=0,displayRank=0,last=0;
 					var str = '<h5>Twitter Fandom</h5><p>For postcode district: ' + postcode+"</p>";
-					str+="<table><tr><th class=\"datacol\">&nbsp;</th><th style=\"text-align: left;\">Team</th></tr>";
-					for (var key in sorted) {
-						team = sorted[key][0];
-						//if (team=="random") continue;//excluded above already
-						
-						var stat = sorted[key][1];
-						/*var stat = isFinite(sorted[key][1])? ""+(sorted[key][1]/100) : "Inf.";
-						if (stat.indexOf(".")==-1) stat+=".00";
-						else if (stat.indexOf(".")==stat.length-2) stat+="0";*/
-						
-						rank++;
-						
-						str+="<tr><td class=\"datacol\">";
-						if (last==stat) {
-							str+="="+displayRank;
-						} else {
-							displayRank=rank;
-							str+=displayRank;
-							last=stat;
-						}
-						str+="</td><td>";
-						if (team==team1 || team==team2)	str+="<strong style='color:#08C'>"
-						str+=teamsData[team]["name"];// + "</td><td class='datacol'>" + stat;
-						if (team==team1 || team==team2)	str+="</strong>"
-						str+="</td></tr>";
-						
-						//console.log(teamsData[team]["name"] + ": " + stat);
+					
+					if (sorted.length>0) {
+						str+="<table><tr><th class=\"datacol\">&nbsp;</th><th style=\"text-align: left;\">Team</th></tr>";
+						for (var key in sorted) {
+							team = sorted[key][0];
+							//if (team=="random") continue;//excluded above already
+							
+							var stat = sorted[key][1];
+							rank++;
+							
+							str+="<tr><td class=\"datacol\">";
+							if (last==stat) {
+								str+="="+displayRank;
+							} else {
+								displayRank=rank;
+								str+=displayRank;
+								last=stat;
+							}
+							str+="</td><td>";
+							if (team==team1 || team==team2)	str+="<strong style='color:#08C'>"
+							str+=teamsData[team]["name"];// + "</td><td class='datacol'>" + stat;
+							if (team==team1 || team==team2)	str+="</strong>"
+							str+="</td></tr>";
+							
+							//console.log(teamsData[team]["name"] + ": " + stat);
 				
-					}	
-						//teamsData[team1]["name"]+': '+ twitterData[postcode][team1] + '<br>'+
-						//teamsData[team2]["name"]+': '+ twitterData[postcode][team2];
-					str+="</table><br/>";
+						}	
+						str+="</table><br/>";
+
+					} else {
+						str+="No data available for this region.";
+					}
+
 					this._div.innerHTML="<small>"+str+"</small>";
 
 				} else {
