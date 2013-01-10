@@ -113,8 +113,8 @@ $(document).ready(function() {
 				if (!teamsData[t]["stadium"]) continue;
 				var myIcon = L.icon({
 					iconUrl: 'img/markers/'+teamsData[t]["crest"],
-					iconSize: [30, 30],
-					iconAnchor: [15, 15]
+					iconSize: [40, 40],
+					iconAnchor: [20, 20]
 				});
 				var marker = L.marker(teamsData[t]["stadium"],{title:teamsData[t]["name"],icon:myIcon,"var":teamsData[t]["variable"]}).addTo(map);
 				stadiums[t]=marker;
