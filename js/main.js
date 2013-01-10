@@ -138,7 +138,7 @@ $(document).ready(function() {
 					var sorted = [];
 					for (var team in teamsData) {
 						if (team=="random") continue;
-						
+						if (twitterData[postcode][team]==0) continue;//Omit teams with no data
 						var stat = (twitterData[postcode][team]==0)?0:Math.round(1000*twitterData[postcode][team]/rand);						
 						sorted.push([team, stat]);
 					}
@@ -149,22 +149,35 @@ $(document).ready(function() {
 
 					//console.log(sorted[0][0]+" with "+sorted[0][1]);
 
-
-					var str = '<h5>Twitter Fandom</h5><p>For postcode district: ' + postcode+"</p><table><tr><th>Team</th><th style='text-align:center'>Fans/1,000 Twitter Users</th></tr>";
+					var rank=0,displayRank=0,last=0;
+					var str = '<h5>Twitter Fandom</h5><p>For postcode district: ' + postcode+"</p>";
+					str+="<table><tr><th class=\"datacol\">&nbsp;</th><th style=\"text-align: left;\">Team</th></tr>";
 					for (var key in sorted) {
 						team = sorted[key][0];
-						if (team=="random") continue;
+						//if (team=="random") continue;//excluded above already
 						
-						//console.log(sorted[key][1]);
-						var stat = isFinite(sorted[key][1])? ""+(sorted[key][1]/100) : "Inf.";
+						var stat = sorted[key][1];
+						/*var stat = isFinite(sorted[key][1])? ""+(sorted[key][1]/100) : "Inf.";
 						if (stat.indexOf(".")==-1) stat+=".00";
-						else if (stat.indexOf(".")==stat.length-2) stat+="0";
+						else if (stat.indexOf(".")==stat.length-2) stat+="0";*/
 						
-						str+="<tr><td>";
+						rank++;
+						
+						str+="<tr><td class=\"datacol\">";
+						if (last==stat) {
+							str+="="+displayRank;
+						} else {
+							displayRank=rank;
+							str+=displayRank;
+							last=stat;
+						}
+						str+="</td><td>";
 						if (team==team1 || team==team2)	str+="<strong style='color:#08C'>"
-						str+=teamsData[team]["name"] + "</td><td class='datacol'>" + stat;
+						str+=teamsData[team]["name"];// + "</td><td class='datacol'>" + stat;
 						if (team==team1 || team==team2)	str+="</strong>"
 						str+="</td></tr>";
+						
+						//console.log(teamsData[team]["name"] + ": " + stat);
 				
 					}	
 						//teamsData[team1]["name"]+': '+ twitterData[postcode][team1] + '<br>'+
