@@ -245,3 +245,8 @@ small li {
 tr, th {
 	line-height: 12px
 }
+
+td.datacol {
+	text-align: right;
+	padding-right:60px;
+}

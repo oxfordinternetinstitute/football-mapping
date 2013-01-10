@@ -158,7 +158,7 @@ $(document).ready(function() {
 						
 						str+="<tr><td>";
 						if (team==team1 || team==team2)	str+="<strong style='color:#08C'>"
-						str+=teamsData[team]["name"] + "</td><td style='text-align:right'>" + stat;
+						str+=teamsData[team]["name"] + "</td><td class='datacol'>" + stat;
 						if (team==team1 || team==team2)	str+="</strong>"
 						str+="</td></tr>";
 				
