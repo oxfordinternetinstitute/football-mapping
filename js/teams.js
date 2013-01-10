@@ -92,7 +92,7 @@ var teamsData={
     "norwichcity": {
         "color": "#E9F000", 
         "crest": "Norwich_City.png", 
-        "name": "Norwitch City", 
+        "name": "Norwich City", 
         "stadium": [
             52.622128, 
             1.308653
