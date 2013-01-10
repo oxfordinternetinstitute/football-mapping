@@ -258,5 +258,10 @@ tr, th {
 
 td.datacol {
 	text-align: right;
-	padding-right:60px;
+	padding-right:30px;
+}
+
+table {
+	width:200px;
+	margin:0 auto;
 }
