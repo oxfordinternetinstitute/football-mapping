@@ -265,3 +265,20 @@ table {
 	width:200px;
 	margin:0 auto;
 }
+
+.btn-custom {
+  background-color: hsl(0, 100%, 18%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff1414", endColorstr="#5b0000");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#ff1414), to(#5b0000));
+  background-image: -moz-linear-gradient(top, #ff1414, #5b0000);
+  background-image: -ms-linear-gradient(top, #ff1414, #5b0000);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ff1414), color-stop(100%, #5b0000));
+  background-image: -webkit-linear-gradient(top, #ff1414, #5b0000);
+  background-image: -o-linear-gradient(top, #ff1414, #5b0000);
+  background-image: linear-gradient(#ff1414, #5b0000);
+  border-color: #5b0000 #5b0000 hsl(0, 100%, 9%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.59);
+  -webkit-font-smoothing: antialiased;
+}
