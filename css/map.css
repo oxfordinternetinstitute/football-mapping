@@ -201,6 +201,16 @@ box-shadow:         0px -3px 25px rgba(0, 0, 0, 1);
 	overflow:hidden;
 }
 
+#colortext {
+	width:125px; 
+	height:15px;text-align:center;clear:both;
+	margin:0 auto;
+	position:relative;
+	top:20px;
+	color:#fff;
+
+
+}
 .colorblock {
 	width: 25px;
 	height: 25px;
