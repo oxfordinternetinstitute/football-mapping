@@ -417,8 +417,7 @@ $(document).ready(function() {
 					opacity: 1,
 					color: '#666666',
 					fillOpacity: opacity,
-					fillColor: polygonColor,
-
+					fillColor: polygonColor
 				};
 			}
 
