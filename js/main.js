@@ -16,7 +16,7 @@ jQuery.getJSON("data/uk_post_districs.json",function(data) {
 //global vars
 var current_rivalry = 0; // this is what we will change with our drop down select box
 var team1,team2;
-var colorMin,colorMax,geojson,map,info;
+var colorMin,colorMax,geojson,map,info,oms;
 var color1,color2;
 var colorInfo={
 	cutpoints:[],
@@ -82,8 +82,18 @@ $(document).ready(function() {
 			//console.log("Firefox");
 		}*/
 		map = L.map('map',mapOpts).fitBounds(bounds);///.setView([54.6342, -5.2], 6);
+		oms = new OverlappingMarkerSpiderfier(map,{keepSpiderfied:true,alwaysSpiderfied:true}); //overlapping marker layer
 
-
+		oms.addListener('click', function(marker) {
+			var hash = marker.options["var"];
+			document.location.hash=hash;
+			showData("#"+hash);
+		});
+		
+		map.on('zoomend',function() {
+			if (team2!="random")	oms.spiderfyMarker(stadiums[team1]);
+		});
+		
 		/*L.tileLayer('http://{s}.tile.cloudmade.com/{key}/22677/256/{z}/{x}/{y}.png', {
 			key: 'BC9A493B41014CAABB98F0471D759707'
 			}).addTo(map);*/
@@ -219,13 +229,6 @@ $(document).ready(function() {
 			
 			$('#team1logo').attr("src", "img/crests/"+teamsData[team1]['crest']);
 			$('#team1name').text(teamsData[team1]['name']);
-			var oms = new OverlappingMarkerSpiderfier(map); //overlapping marker layer
-
-			oms.addListener('click', function(marker) {
-				var hash = marker.options["var"];
-				document.location.hash=hash;
-				showData("#"+hash);
-			});
 
 			for (var t in stadiums) {
 				if (t==team1||t==team2) {
@@ -233,8 +236,12 @@ $(document).ready(function() {
 					oms.addMarker(stadiums[t]);
 				} else {
 					map.removeLayer(stadiums[t]);
-
+					oms.removeMarker(stadiums[t]);
 				}
+			}
+			
+			if (team2!="random") {
+				oms.spiderfyMarker(stadiums[team1]);
 			}
 		
 		}
