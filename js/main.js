@@ -85,9 +85,12 @@ $(document).ready(function() {
 		oms = new OverlappingMarkerSpiderfier(map,{keepSpiderfied:true,alwaysSpiderfied:true}); //overlapping marker layer
 
 		oms.addListener('click', function(marker) {
-			var hash = marker.options["var"];
-			document.location.hash=hash;
-			showData("#"+hash);
+			var team = marker.options["var"];
+			/*document.location.hash=team;
+			showData("#"+team);*/
+			var center = teamsData[team]["stadium"];
+			var zMax = map.getMaxZoom();
+			map.setView(center,zMax);
 		});
 		
 		map.on('zoomend',function() {
@@ -152,7 +155,7 @@ $(document).ready(function() {
 						team = sorted[key][0];
 						if (team=="random") continue;
 						
-						console.log(sorted[key][1]);
+						//console.log(sorted[key][1]);
 						var stat = isFinite(sorted[key][1])? ""+(sorted[key][1]/100) : "Inf.";
 						if (stat.indexOf(".")==-1) stat+=".00";
 						else if (stat.indexOf(".")==stat.length-2) stat+="0";
