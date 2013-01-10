@@ -389,27 +389,29 @@ $(document).ready(function() {
 				//polygoncolor = blend(rivalries[current_rivalry]['teams'][0]['color'],value1,
 				//	rivalries[current_rivalry]['teams'][1]['color'],value2);
 				
-				var polygoncolor;
+				var polygonColor,opacity;
 				if (value1==0 && (team2=="random"||value2==0)) {
-					polygoncolor="none";
+					polygonColor="#cccccc";
+					opacity=0;
 				} else {
 					var col = value1/(value1+value2);
 					//col = (col-colorMin)*(1/(colorMax-colorMin));
 					//polygoncolor = normBlend(color1,color2,col);
-					polygoncolor=dataToColor(col);
+					polygonColor=dataToColor(col);
 					/*if (postcode=="M32") {
 						console.log(polygoncolor);
 						console.log(col);
 						console.log(colorInfo);
 					}*/
+					opacity=1;
 				}
 
 				return {
 					weight: 0.2,
 					opacity: 1,
 					color: '#666666',
-					fillOpacity: 1,
-					fillColor: polygoncolor,
+					fillOpacity: opacity,
+					fillColor: polygonColor,
 
 				};
 			}
