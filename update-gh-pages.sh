@@ -5,7 +5,7 @@ git clone git@github.com:oxfordinternetinstitute/football-mapping.git
 cd football-mapping
 git checkout --orphan gh-pages
 
-#Minify
+#Minify -- requires js-compiler.jar from https://developers.google.com/closure/compiler/
 cp -r js jsFull
 for i in main.js oms.js colorUtil.js plugins.js rivalries.js teams.js tinycolor.js vendor/zoomslider/L.Control.Zoomslider.js
 do
