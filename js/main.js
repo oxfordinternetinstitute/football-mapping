@@ -147,7 +147,7 @@ $(document).ready(function() {
     					return b[1] - a[1];
 					});
 
-					console.log(sorted[0][0]+" with "+sorted[0][1]);
+					//console.log(sorted[0][0]+" with "+sorted[0][1]);
 
 
 					var str = '<h5>Twitter Fandom</h5><p>For postcode district: ' + postcode+"</p><table><tr><th>Team</th><th style='text-align:center'>Per 1000 Geotagged Tweets</th></tr>";
@@ -157,7 +157,7 @@ $(document).ready(function() {
 						
 						var stat = ""+(Math.round(1000*twitterData[postcode][team]/rand)/100);
 						if (stat.indexOf(".")==-1) stat+=".00";
-						else if (stat.indexOf(".")==stat.length) stat+="0";
+						else if (stat.indexOf(".")==stat.length-2) stat+="0";
 						
 						str+="<tr><td>";
 						if (team==team1 || team==team2)	str+="<strong style='color:#08C'>"
