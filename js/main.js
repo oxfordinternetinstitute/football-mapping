@@ -136,7 +136,7 @@ $(document).ready(function() {
 					for (var team in teamsData) {
 						if (team=="random") continue;
 						
-						var stat = Math.round(1000*twitterData[postcode][team]/rand);						
+						var stat = (twitterData[postcode][team]==0)?0:Math.round(1000*twitterData[postcode][team]/rand);						
 						sorted.push([team, stat]);
 					}
 
@@ -152,7 +152,8 @@ $(document).ready(function() {
 						team = sorted[key][0];
 						if (team=="random") continue;
 						
-						var stat = ""+(sorted[key][1]/100);
+						console.log(sorted[key][1]);
+						var stat = isFinite(sorted[key][1])? ""+(sorted[key][1]/100) : "Inf.";
 						if (stat.indexOf(".")==-1) stat+=".00";
 						else if (stat.indexOf(".")==stat.length-2) stat+="0";
 						
