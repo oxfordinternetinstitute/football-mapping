@@ -1,6 +1,6 @@
 /** Slider **/
 .leaflet-control-zoomslider-slider-wrap {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .leaflet-control-zoomslider-slider-wrap {
@@ -46,7 +46,7 @@
 .leaflet-control-zoomslider a {
   width: 23px;
   height: 22px;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.7);
   text-align: center;
   text-decoration: none;
   color: #fff;
@@ -61,7 +61,7 @@
   color: #fff;
   }
 .leaflet-control-zoomslider-in {
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid #000000;
   font: bold 19px/24px Arial, Helvetica, sans-serif;
   -webkit-border-radius: 4px 4px 0 0;
           border-radius: 4px 4px 0 0;
@@ -70,7 +70,7 @@
   content:"+"
 }
 .leaflet-control-zoomslider-out {
-  border-top: 1px solid #fff;
+  border-top: 1px solid #000000;
   font: bold 23px/20px Tahoma, Verdana, sans-serif;
   -webkit-border-radius: 0 0 4px 4px;
           border-radius: 0 0 4px 4px;
@@ -80,7 +80,7 @@
 }
 .leaflet-control-zoomslider a.leaflet-control-zoomslider-disabled {
   cursor: default;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.7);
   color: #fff;
   }
 
