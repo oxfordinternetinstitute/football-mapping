@@ -166,7 +166,7 @@ $(document).ready(function() {
 					}	
 						//teamsData[team1]["name"]+': '+ twitterData[postcode][team1] + '<br>'+
 						//teamsData[team2]["name"]+': '+ twitterData[postcode][team2];
-					str+="</table>";
+					str+="</table><br/>";
 					this._div.innerHTML="<small>"+str+"</small>";
 
 				} else {
