@@ -241,3 +241,7 @@ small {
 small li {
 	line-height: 12px
 }
+
+tr, th {
+	line-height: 12px
+}
