@@ -82,6 +82,7 @@ $(document).ready(function() {
 			//console.log("Firefox");
 		}*/
 		map = L.map('map',mapOpts).fitBounds(bounds);///.setView([54.6342, -5.2], 6);
+		addMap();
 		oms = new OverlappingMarkerSpiderfier(map,{keepSpiderfied:true,alwaysSpiderfied:true}); //overlapping marker layer
 
 		oms.addListener('click', function(marker) {
@@ -215,13 +216,14 @@ $(document).ready(function() {
 });
 
 	function addMap() {
-	
+		if (map) {
 			L.geoJson(uk_map, {
 				style: function (feature) {
 			        return {color: "#000",fillColor:"#cccccc",weight:0.5};
 			       }
 				//onEachFeature: onEachFeature
 			}).addTo(map);
+		}
 	}
 		
 
