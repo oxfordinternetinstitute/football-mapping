@@ -1,0 +1,283 @@
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		html, body, #map {
+			height: 100%;
+			overflow: hidden;
+		}
+		
+		#map {
+			opacity:1;
+		}
+		
+		div {
+			-moz-user-select: none; 
+	        -khtml-user-select: none; 
+	        -webkit-user-select: none; 
+	        -o-user-select: none;
+		}
+		
+		.info {
+			padding: 6px 10px;
+			background: white;
+			background: rgba(0,0,0,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+			width:250px;
+			color:#fff;
+			position:relative;
+			top:10px;
+			right:10px;
+		}
+
+		.info h5 {
+			padding: 0;
+			margin:0;
+		}
+
+		.info li {
+			line-height:12px;
+		}
+
+		.legend {
+			text-align: left;
+			line-height: 18px;
+			color: #555;
+		}
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+			opacity: 0.7;
+		}
+		
+		#maplegend {
+			position: absolute;
+			left: 25px;
+			top: 25px;
+			width: 250px;
+			z-index: 3000;
+		}
+		
+		.overlay {
+			background: rgba(0,0,0,0.9);
+-webkit-box-shadow: 0px -3px 25px rgba(0, 0, 0, 1);
+-moz-box-shadow:    0px -3px 25px rgba(0, 0, 0, 1);
+box-shadow:         0px -3px 25px rgba(0, 0, 0, 1);
+		}
+		
+		.title {
+			top:10px;
+			right:10px;
+		}
+
+		.box {
+			bottom:90px;
+			left:30%;
+			right:30%;
+		}
+		
+		ul.datalist {
+		    list-style-type: none;
+		    left-margin:0px;
+		    text-align: left;
+		}
+		
+		#controlwrapper {
+			position:absolute;
+
+			z-index:3000;
+			bottom:0px;
+			left:0%;
+			right:0%;
+			text-align:center;
+			margin-bottom:-340px;
+		}
+		
+		#controls {
+			height:300px;
+			background-color:#ddd;
+			padding:20px;
+		}
+		
+
+		#controls h4 {
+			margin: 0;
+			padding: 0;
+			margin-bottom:10px;
+		}
+		#moreinfo {
+			display: none;
+		}
+
+		.buttoncontainer {
+			     position:relative;
+	        margin-bottom:0px;
+	        top:65px;
+	        margin-right: 30px;
+	        z-index:2000;
+		}
+
+
+	    .emboss { 
+
+		}
+		.light { color:#FFFFFF; text-shadow:0px -1px 0px rgba(0,0,0,0.9); }
+		.dark { color:#555555; text-shadow:0px 1px 0px rgba(255,255,255,0.1); }
+		.lightAgain { color:#FFFFFF; position:relative; }
+		.lightAgain:before {
+		    content: attr(title);
+		    position:absolute;
+		    color:rgba(0,0,0,0.1);
+		    top:-1px;
+		    left:-1px;
+		    padding:50px;
+		}
+		.darkAgain { color:#000000; position:relative; }
+		.darkAgain:before {
+		    content: attr(title);
+		    position:absolute;
+		    color:rgba(255,255,255,0.1);
+		    top:1px;
+		    left:1px;
+		    padding:50px;
+		}
+
+/*		.btn-custom {
+  background-color: hsl(287, 0%, 77%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f7f7f7", endColorstr="#c4c4c4");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#f7f7f7), to(#c4c4c4));
+  background-image: -moz-linear-gradient(top, #f7f7f7, #c4c4c4);
+  background-image: -ms-linear-gradient(top, #f7f7f7, #c4c4c4);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(100%, #c4c4c4));
+  background-image: -webkit-linear-gradient(top, #f7f7f7, #c4c4c4);
+  background-image: -o-linear-gradient(top, #f7f7f7, #c4c4c4);
+  background-image: linear-gradient(#f7f7f7, #c4c4c4);
+  border-color: #c4c4c4 #c4c4c4 hsl(287, 0%, 72%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+  -webkit-font-smoothing: antialiased;
+}*/
+
+.menuheader {
+	width:380px;
+	text-align:center;
+	margin:0 auto;
+	height:50px;
+	padding-top:15px;
+	color:white;
+	position:relative;
+	top:-70px;
+
+
+}
+
+.team1 {
+	float:left;
+}
+
+.team2 {
+	float:right;
+}
+
+.teamlogo {
+	height:80px;
+	padding-bottom:10px;
+}
+
+.vs {
+	line-height:190px;font-size:38px
+}
+
+#colorblocks {
+	width:125px; 
+	height:15px;text-align:center;clear:both;
+	margin:0 auto;
+	position:relative;
+	top:20px;
+	overflow:hidden;
+}
+
+#colortext {
+	width:125px; 
+	height:15px;text-align:center;clear:both;
+	margin:0 auto;
+	position:relative;
+	top:20px;
+	color:#fff;
+
+
+}
+.colorblock {
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.leaflet-container {
+	background:#222222
+}
+
+#infolink {
+	text-shadow:none;
+}
+
+.leaflet-control-zoomslider {
+	position:relative;
+	bottom:105px;
+	left:10px;
+}
+
+.teamname {
+	display:block;
+	width:120px;
+	line-height:13px;
+}
+
+#controls li {
+	font-size:12px;
+	line-height:14px;
+}
+
+small {
+	font-size: 10px
+}
+
+small li {
+	line-height: 12px
+}
+
+tr, th {
+	line-height: 12px
+}
+
+td.datacol {
+	text-align: right;
+	padding-right:15px;
+}
+
+table {
+	width:200px;
+}
+
+.btn-custom {
+  background-color: hsl(0, 100%, 18%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff1414", endColorstr="#5b0000");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#ff1414), to(#5b0000));
+  background-image: -moz-linear-gradient(top, #ff1414, #5b0000);
+  background-image: -ms-linear-gradient(top, #ff1414, #5b0000);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ff1414), color-stop(100%, #5b0000));
+  background-image: -webkit-linear-gradient(top, #ff1414, #5b0000);
+  background-image: -o-linear-gradient(top, #ff1414, #5b0000);
+  background-image: linear-gradient(#ff1414, #5b0000);
+  border-color: #5b0000 #5b0000 hsl(0, 100%, 9%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.59);
+  -webkit-font-smoothing: antialiased;
+}

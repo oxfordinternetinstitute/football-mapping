@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=no">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.css" />
+        <link rel="stylesheet" href="js/vendor/jquery.fancybox.css">		
+		<link rel="stylesheet" href="js/vendor/zoomslider/L.Control.Zoomslider.css" />
+		<!--[if lt IE 9]>
+			<link rel="stylesheet" href="js/vendor/zoomslider/L.Control.Zoomslider.ie.css" />
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" href="css/map.css">		
+    </head>
+    <body>
+    		<div style="position:absolute; height:100%; width: 100%; left:0px; top:0px;background-color: #000; z-index:4000" id="loading">
+
+
+    			<div style="margin:0 auto;width:450px;position:relative;top:200px;text-align:center;line-height:13px;color:#eee">
+    				<h3 style="margin-bottom:30px">Loading Premier League Tweet Map</h3>
+    				<img src="img/ajax-loader.gif" alt="Loading" style="margin-bottom:30px">
+    				<div><small>Tested in the latest versions of Chrome, Firefox, Opera, and IE. A modern HTML5 and CSS3 compliant browser is suggested. Best performance in Google Chrome.</small></div>    				
+    			</div>
+    		</div>
+
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+		<script src="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.js"></script>
+		<!--[if lte IE 8]>
+		    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.ie.css" />
+		<![endif]-->
+		<script src="js/colorUtil.js" type="text/javascript"></script>
+		<script src="js/rivalries.js"></script>
+		<script src="js/tinycolor.js"></script>
+		<script src="js/teams.js"></script>
+		<script src="data/data.js" type="text/javascript"></script>
+		<script src="js/vendor/zoomslider/L.Control.Zoomslider.js"></script>
+		<script src="js/oms.js"></script>
+    
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+   		<script src="js/vendor/jquery.fancybox.pack.js" type="text/javascript" language="javascript"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+		<div id="map"></div>
+		<div id="controlwrapper">
+
+			<div class="overlay header">
+				<div id="colorblocks"></div>
+				<div id="colortext"><small>Greater &#8594; Fewer</small></div>
+				<div class="menuheader">
+					<div class="team1" id="team1">
+						<image id="team1logo" class="teamlogo" src=""/>
+						<br/><span id="team1name" class="teamname"></span>
+					</div>	
+				
+					<div class="team2" id="team2">
+						<image id="team2logo" class="teamlogo" src="" />
+						<br/><span id="team2name" class="teamname"></span>
+					</div>				
+					<div class="vs">
+						
+					</div>
+				</div>
+			</div>
+			<div id="controls">
+				<div style="width:600px;margin:0 auto">
+<!-- 					<div>
+					<a href="#" id="closeBtn" class="btn closeButton">Close</a>
+					</div> -->
+					<div style="float:left;width:300px;margin-top:-40px;clear:left;">
+						<h4>Rivalries</h4>
+						<ul id="rivalryList" class="datalist"></ul>
+					</div>
+					<div style="float:right;width:300px;margin-top:-40px">
+						<h4>Teams</h4>
+						<ul id="teamList" class="datalist"></ul>
+					</div>					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div id="maplegend">
+			<h4 class="light">Premier League team support on Twitter</h4>
+			<p class="light">Geotagged tweets aggregated to postcode districts (by user) from 18 Aug. to 19 Dec. 2012.</p>
+				<a href="#moreinfo" class="controlButton fancybox btn btn-link btn-mini" id="infolink"><i class="icon-info-sign icon-white"></i> More information</a>
+				<br /><br />
+				<a href="javascript:void(0);" class="controlButton btn btn-custom" id="controlButton"><i class="icon-list  icon-white"></i> Click to Select a Rivalry or Team</a>
+				<br />
+				
+		</div>
+		
+		<div id="moreinfo">
+			<h2>About this Map</h2>
+			<p>This map was created by:</p>
+			<ul>
+			<li><a href="http://www.oii.ox.ac.uk/people/?id=273">Joshua R. Melville</a>, Oxford Internet Institute, University of Oxford</li>
+			<li><a href="http://www.scotthale.net/">Scott A. Hale</a> (<a href="http://twitter.com/computermacgyve">@computermacgyve</a>), Oxford Internet Institute, University of Oxford</li>
+			<li><a href="http://www.floatingsheep.org/p/ate-poorthuis.html">Ate Poorthuis</a>, Department of Geography, University of Kentucky</li>
+			<li><a href="http://www.geospace.co.uk/">Mark Graham</a> (<a href="http://twitter.com/geoplace">@geoplace</a>), Oxford Internet Institute, University of Oxford</li>
+			<li><a href="http://www.zooknic.com/">Matthew Zook</a> (<a href="http://twitter.com/mattzook">@mattzook</a>), Department of Geography University of Kentucky</li>
+			<li><a href="https://sites.google.com/a/email.arizona.edu/stephens/">Monica Stephens</a> (<a href="http://twitter.com/geographiliac">@geographiliac</a>), Department of Geography, Humboldt State University</li>  
+			<li><a href="http://www.floatingsheep.org/p/taylor-shelton.html">Taylor Shelton</a> (<a href="http://twitter.com/kyjts">@kyjts</a>), Graduate School of Geography, Clark University</li>
+			</ul>
+			
+			<p>Powered by <a href="http://www.leafletjs.com">Leaflet</a>. Postcode data from <a href="http://www.ordnancesurvey.co.uk/oswebsite/">OS</a> and <a href="http://www.nisra.gov.uk/">NISRA</a>. Country shape data from <a href="http://www.naturalearthdata.com/">Natural Earth</a>.</p>
+			
+			<p>All geotagged tweets mentioning Premier League teams were collected between 18 Aug. and 19 Dec. 2012. The number of unique users mentioning team hash tags were counted and aggregated to UK postcode districts. The data is normalized by a 0.25% sample of all geotagged tweets in the postcode district.</p>
+			
+			<p>For more information about this work, please <a href="http://www.floatingsheep.org/2013/01/premier-league-teams-on-twitter-or-why.html">read about it on floatingsheep.org</a>, or follow <a href="http://twitter.com/floating_sheep">@floating_sheep</a> and <a href="http://twitter.com/oiioxford">@oiioxford</a> on Twitter.</p>
+			
+			<p>This framework is released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC-BY-NC-SA license</a>. Code available on <a href="https://github.com/oxfordinternetinstitute/football-mapping/">GitHub</a>.</p>
+		</div>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21293169-4']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    </body>
+</html>
